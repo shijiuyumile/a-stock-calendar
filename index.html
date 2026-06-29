@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股2026下半年投资理财日历</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f1117;
+  --card-bg: #1a1d28;
+  --text: #e1e4ea;
+  --text-secondary: #8b8fa3;
+  --text-muted: #5a5e72;
+  --border: #2a2d3a;
+  --accent: #3b82f6;
+  --today-bg: rgba(59,130,246,0.12);
+  --today-border: #3b82f6;
+  --weekend-text: #f87171;
+  --hover-bg: rgba(255,255,255,0.04);
+
+  --c-futures: #ef4444;
+  --c-futures-bg: rgba(239,68,68,0.12);
+  --c-fomc: #f97316;
+  --c-fomc-bg: rgba(249,115,22,0.12);
+  --c-usdata: #eab308;
+  --c-usdata-bg: rgba(234,179,8,0.12);
+  --c-cndata: #22c55e;
+  --c-cndata-bg: rgba(34,197,94,0.12);
+  --c-policy: #3b82f6;
+  --c-policy-bg: rgba(59,130,246,0.12);
+  --c-earnings: #a855f7;
+  --c-earnings-bg: rgba(168,85,247,0.12);
+  --c-global: #ec4899;
+  --c-global-bg: rgba(236,72,153,0.12);
+  --c-holiday: #6b7280;
+  --c-holiday-bg: rgba(107,114,128,0.12);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #1a1d28 0%, #1e293b 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.header-left h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #e1e4ea, #8b8fa3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+.header-left .sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--hover-bg); border-color: #4a4d5a; }
+.btn-today {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.btn-today:hover { background: #2563eb; }
+.update-info {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== MONTH NAV ===== */
+.month-nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 32px 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.month-nav a {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.month-nav a:hover, .month-nav a.active { background: var(--accent); color: #fff; }
+
+/* ===== LEGEND ===== */
+.legend-bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 32px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.legend-item {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+  opacity: 1;
+}
+.legend-item.dimmed { opacity: 0.35; }
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 32px 60px;
+}
+
+/* ===== MONTH BLOCK ===== */
+.month-block {
+  margin-bottom: 32px;
+  scroll-margin-top: 120px;
+}
+.month-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.month-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.month-header .month-count {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Grid */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.day-header {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+.day-header.weekend { color: var(--weekend-text); }
+
+.day-cell {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  min-height: 90px;
+  cursor: default;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+.day-cell:hover {
+  border-color: var(--accent);
+  background: #1e2232;
+  z-index: 5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.day-cell.empty { background: transparent; border-color: transparent; }
+.day-cell.weekend-cell { background: rgba(255,255,255,0.015); }
+.day-cell.today {
+  border-color: var(--today-border) !important;
+  box-shadow: 0 0 0 1px var(--today-border);
+}
+
+.day-num {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.day-cell.weekend-cell .day-num { color: var(--weekend-text); }
+.today .day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+}
+.day-lunar {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* Event tags */
+.day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.event-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+.event-tag.cat-futures  { color: var(--c-futures);  background: var(--c-futures-bg);  }
+.event-tag.cat-fomc     { color: var(--c-fomc);     background: var(--c-fomc-bg);     }
+.event-tag.cat-us-data  { color: var(--c-usdata);   background: var(--c-usdata-bg);   }
+.event-tag.cat-cn-data  { color: var(--c-cndata);   background: var(--c-cndata-bg);   }
+.event-tag.cat-cn-policy{ color: var(--c-policy);   background: var(--c-policy-bg);   }
+.event-tag.cat-earnings { color: var(--c-earnings); background: var(--c-earnings-bg); }
+.event-tag.cat-global   { color: var(--c-global);   background: var(--c-global-bg);   }
+.event-tag.cat-holiday  { color: var(--c-holiday);  background: var(--c-holiday-bg);  }
+.event-tag .star { color: #fbbf24; margin-right: 1px; }
+
+.more-events {
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+/* ===== TOOLTIP ===== */
+.tooltip {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  background: #1e2232;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+.tooltip.show { display: block; }
+.tooltip-date {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.tooltip-event {
+  padding: 5px 0;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.tooltip-event + .tooltip-event { border-top: 1px solid rgba(255,255,255,0.04); }
+.tooltip-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+.tooltip-body { flex: 1; }
+.tooltip-title { font-weight: 600; margin-bottom: 1px; }
+.tooltip-time { font-size: 11px; color: var(--text-secondary); }
+.tooltip-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.tooltip-high { font-size: 10px; color: #fbbf24; font-weight: 600; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header { padding: 16px; }
+  .header-left h1 { font-size: 18px; }
+  .legend-bar, .month-nav, .main { padding-left: 12px; padding-right: 12px; }
+  .month-grid { gap: 2px; }
+  .day-cell { padding: 5px; min-height: 68px; border-radius: 6px; }
+  .day-num { font-size: 12px; }
+  .day-lunar { font-size: 10px; }
+  .event-tag { font-size: 9px; padding: 1px 4px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>A股2026下半年投资理财日历</h1>
+      <div class="sub">数据驱动 · 每周四自动更新 · 覆盖股指期货、FOMC、中美经济数据、政策会议等</div>
+    </div>
+    <div class="header-right">
+      <span class="update-info" id="updateInfo">加载中…</span>
+      <button class="btn btn-today" onclick="scrollToToday()">📍 回到今天</button>
+      <button class="btn" id="btnReset">🔄 显示全部</button>
+    </div>
+  </div>
+</div>
+
+<nav class="month-nav" id="monthNav"></nav>
+
+<div class="legend-bar" id="legendBar"></div>
+
+<div class="main" id="calendarMain"></div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ========== 农历算法 ==========
+const lunarInfo = [
+  0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+  0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+  0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+  0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+  0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+  0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+  0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+  0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+  0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+  0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x05ac0,0x0ab60,0x096d5,0x092e0,
+  0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+  0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+  0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+  0x05aa0,0x076a3,0x096d0,0x04afb,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+  0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,
+  0x14b63,0x09370,0x049f8,0x04970,0x064b0,0x168a6,0x0ea50,0x06aa0,0x1a6c4,0x0aae0,
+  0x092e0,0x0d2e3,0x0c960,0x0d557,0x0d4a0,0x0da50,0x05d55,0x056a0,0x0a6d0,0x055d4,
+  0x052d0,0x0a9b8,0x0a950,0x0b4a0,0x0b6a6,0x0ad50,0x055a0,0x0aba4,0x0a5b0,0x052b0,
+  0x0b273,0x06930,0x07337,0x06aa0,0x0ad50,0x14b55,0x04b60,0x0a570,0x054e4,0x0d160,
+  0x0e968,0x0d520,0x0daa0,0x16aa6,0x056d0,0x04ae0,0x0a9d4,0x0a4d0,0x0d150,0x0f252,
+  0x0d520
+];
+
+const solarMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+const Gan = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+const Zhi = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const Animals = ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
+const lunarMonths = ['正','二','三','四','五','六','七','八','九','十','冬','腊'];
+const lunarDays = ['初','十','廿','卅'];
+const lunarDayNum = ['一','二','三','四','五','六','七','八','九','十'];
+
+function lYearDays(y) {
+  let sum = 348;
+  for (let i = 0x8000; i > 0x8; i >>= 1) sum += (lunarInfo[y-1900] & i) ? 1 : 0;
+  return sum + leapDays(y);
+}
+function leapMonth(y) { return lunarInfo[y-1900] & 0xf; }
+function leapDays(y) { return leapMonth(y) ? ((lunarInfo[y-1900] & 0x10000) ? 30 : 29) : 0; }
+function monthDays(y, m) { return (lunarInfo[y-1900] & (0x10000 >> m)) ? 30 : 29; }
+
+function solarToLunar(y, m, d) {
+  if (y < 1900 || y > 2100) return {lYear:y,lMonth:m,lDay:d,isLeap:false};
+  let offset = 0;
+  for (let i = 1900; i < y; i++) offset += lYearDays(i);
+  for (let i = 1; i < m; i++) {
+    if (i === 2) offset += (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0 ? 29 : 28;
+    else offset += solarMonth[i-1];
+  }
+  offset += d;
+  let ly, lm, ld, isLeap = false;
+  for (ly = 1900; ly < 2101 && offset > 0; ly++) {
+    let tmp = lYearDays(ly);
+    if (offset - tmp < 0) break;
+    offset -= tmp;
+  }
+  let leap = leapMonth(ly), lmc;
+  for (lm = 1; lm < 13 && offset > 0; lm++) {
+    if (leap > 0 && lm === leap + 1 && !isLeap) { --lm; isLeap = true; lmc = leapDays(ly); }
+    else { lmc = monthDays(ly, lm); }
+    if (isLeap && lm === leap + 1) isLeap = false;
+    if (offset - lmc < 0) break;
+    offset -= lmc;
+  }
+  ld = offset;
+  return { lYear: ly, lMonth: lm, lDay: ld, isLeap: (leap > 0 && lm === leap + 1) };
+}
+
+function formatLunar(l) {
+  if (l.lDay === 0) return '（闰）'+lunarMonths[l.lMonth-1]+'月';
+  if (l.lDay === 1) return lunarMonths[l.lMonth-1]+'月';
+  const d = l.lDay;
+  if (d <= 10) return '初'+lunarDayNum[d-1];
+  if (d < 20) return '十'+lunarDayNum[d-11];
+  if (d === 20) return '二十';
+  if (d < 30) return '廿'+lunarDayNum[d-21];
+  return '三十';
+}
+
+function specialLunarDay(ly, lm, ld) {
+  if (lm === 1 && ld === 1) return '春节';
+  if (lm === 1 && ld === 15) return '元宵';
+  if (lm === 5 && ld === 5) return '端午';
+  if (lm === 7 && ld === 7) return '七夕';
+  if (lm === 7 && ld === 15) return '中元';
+  if (lm === 8 && ld === 15) return '中秋';
+  if (lm === 9 && ld === 9) return '重阳';
+  if (lm === 12 && ld === 30) return '除夕';
+  return null;
+}
+
+// ========== 数据加载与渲染 ==========
+const CATEGORY_MAP = {
+  'futures':   { name: '期货/期权交割', color: 'var(--c-futures)',  bg: 'var(--c-futures-bg)',  cls: 'cat-futures'  },
+  'fomc':      { name: '美联储议息',   color: 'var(--c-fomc)',     bg: 'var(--c-fomc-bg)',     cls: 'cat-fomc'     },
+  'us-data':   { name: '美国经济数据', color: 'var(--c-usdata)',   bg: 'var(--c-usdata-bg)',   cls: 'cat-us-data'  },
+  'cn-data':   { name: '中国经济数据', color: 'var(--c-cndata)',   bg: 'var(--c-cndata-bg)',   cls: 'cat-cn-data'  },
+  'cn-policy': { name: '央行政策会议', color: 'var(--c-policy)',   bg: 'var(--c-policy-bg)',   cls: 'cat-cn-policy'},
+  'earnings':  { name: '财报季',       color: 'var(--c-earnings)', bg: 'var(--c-earnings-bg)', cls: 'cat-earnings' },
+  'global':    { name: '国际事件',     color: 'var(--c-global)',   bg: 'var(--c-global-bg)',   cls: 'cat-global'   },
+  'holiday':   { name: '节假日休市',   color: 'var(--c-holiday)',  bg: 'var(--c-holiday-bg)',  cls: 'cat-holiday'  }
+};
+
+let allEvents = [];
+let eventsByDate = {};
+let activeFilters = new Set(Object.keys(CATEGORY_MAP));
+
+function loadData() {
+  // 数据内嵌于HTML，避免file://协议的CORS限制
+  const data = {
+  "updated": "2026-06-29",
+  "auto_update": true,
+  "next_update": "2026-07-02",
+  "events": [
+    {
+      "date": "2026-07-01",
+      "title": "中国6月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "财新Markit制造业PMI，中小制造企业景气度"
+    },
+    {
+      "date": "2026-07-01",
+      "title": "美国6月ADP就业人数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:15",
+      "note": "有「小非农」之称，前瞻非农走势"
+    },
+    {
+      "date": "2026-07-02",
+      "title": "美国6月非农就业数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "非农就业人数、失业率、平均时薪；影响全球风险偏好"
+    },
+    {
+      "date": "2026-07-03",
+      "title": "中国6月财新服务业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "服务业景气度参考"
+    },
+    {
+      "date": "2026-07-04",
+      "title": "美国独立日休市",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": "美股休市，全球市场交投清淡"
+    },
+    {
+      "date": "2026-07-09",
+      "title": "中国6月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "居民消费价格指数+工业生产者出厂价格指数；通胀形势核心指标"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "中国6月社融/M2/新增贷款",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "社会融资规模、货币供应量；信用扩张力度风向标（预计7/10-7/15）"
+    },
+    {
+      "date": "2026-07-13",
+      "title": "中国6月进出口数据",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "海关总署发布；出口增速反映外需冷暖（预计7/13-7/14）"
+    },
+    {
+      "date": "2026-07-14",
+      "title": "美国6月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀数据，直接影响美联储加息预期"
+    },
+    {
+      "date": "2026-07-15",
+      "title": "中国二季度GDP + 6月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "GDP增速、工业增加值、社零、固投、房地产等；上半年经济成绩单"
+    },
+    {
+      "date": "2026-07-15",
+      "title": "央行MLF操作",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "中期借贷便利操作，LPR定价之锚"
+    },
+    {
+      "date": "2026-07-17",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货当月合约到期交割，尾盘波动加剧"
+    },
+    {
+      "date": "2026-07-20",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "贷款市场报价利率，影响房贷及企业融资成本"
+    },
+    {
+      "date": "2026-07-21",
+      "title": "欧洲央行议息会议",
+      "category": "global",
+      "importance": "normal",
+      "time": "20:15",
+      "note": "ECB利率决议，影响欧元汇率及全球流动性"
+    },
+    {
+      "date": "2026-07-27",
+      "title": "中国6月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "规模以上工业企业利润增速"
+    },
+    {
+      "date": "2026-07-28",
+      "title": "美联储FOMC议息会议（Day1）",
+      "category": "fomc",
+      "importance": "high",
+      "time": "全天",
+      "note": "美联储7月议息会议第一天"
+    },
+    {
+      "date": "2026-07-29",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
+      "importance": "high",
+      "time": "02:00",
+      "note": "利率决议声明+鲍威尔发布会；全年最重要议息会议之一"
+    },
+    {
+      "date": "2026-07-29",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF等ETF期权行权日"
+    },
+    {
+      "date": "2026-07-30",
+      "title": "美国二季度GDP初值",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美国经济增长态势核心指标"
+    },
+    {
+      "date": "2026-07-30",
+      "title": "中国7月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "官方制造业+非制造业PMI，经济景气度先行指标"
+    },
+    {
+      "date": "2026-07-31",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "富时中国A50指数期货交割，外资对冲盘面变化"
+    },
+    {
+      "date": "2026-07-31",
+      "title": "美国6月核心PCE物价指数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美联储最看重的通胀指标"
+    },
+    {
+      "date": "2026-07-25",
+      "title": "中央政治局会议（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "不确定",
+      "note": "年中经济形势分析会，定调下半年政策方向；7月下旬召开"
+    },
+    {
+      "date": "2026-08-03",
+      "title": "中国7月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "中小制造企业景气度"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "美国7月ADP就业人数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:15",
+      "note": "小非农，前瞻非农"
+    },
+    {
+      "date": "2026-08-07",
+      "title": "美国7月非农就业数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "就业市场核心数据"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "中国7月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "通胀形势（8/9为周日，预计顺延至8/10）"
+    },
+    {
+      "date": "2026-08-12",
+      "title": "美国7月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀数据"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "中国7月社融/M2/新增贷款",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（预计8/10-8/15）"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "中国7月进出口数据",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸形势（预计8/7-8/14）"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "中国7月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "工业增加值、社零、固投、房地产、能源、房价"
+    },
+    {
+      "date": "2026-08-17",
+      "title": "央行MLF操作（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "8/15为周六，预计顺延"
+    },
+    {
+      "date": "2026-08-20",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "贷款市场报价利率"
+    },
+    {
+      "date": "2026-08-21",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货交割"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF等期权行权"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "中国7月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "工业企业利润"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "美国7月核心PCE物价指数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美联储关注的核心通胀指标"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "中国8月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "官方制造业PMI"
+    },
+    {
+      "date": "2026-08-31",
+      "title": "A股中报披露截止日",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "所有上市公司半年报披露截止；8月下旬为密集披露期"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "中报密集披露期开始",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "8月下半月进入中报密集发布窗口，业绩暴雷/超预期频现"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "中国8月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "财新PMI"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "美国8月ADP就业人数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:15",
+      "note": "小非农"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "美国8月非农就业数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "非农数据"
+    },
+    {
+      "date": "2026-09-09",
+      "title": "中国8月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "通胀数据"
+    },
+    {
+      "date": "2026-09-11",
+      "title": "美国8月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀数据，FOMC前最关键的CPI数据"
+    },
+    {
+      "date": "2026-09-11",
+      "title": "中国8月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（预计9/10-9/15）"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "中国8月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸数据（预计9/7-9/10）"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "中国8月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "工业、社零、固投、房地产等全面经济数据"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "央行MLF操作",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "MLF操作"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "美联储FOMC议息会议（Day1）",
+      "category": "fomc",
+      "importance": "high",
+      "time": "全天",
+      "note": "9月议息第一天"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
+      "importance": "high",
+      "time": "02:00",
+      "note": "利率决议+经济预测摘要（点阵图）+鲍威尔发布会"
+    },
+    {
+      "date": "2026-09-18",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货交割"
+    },
+    {
+      "date": "2026-09-20",
+      "title": "国庆调休补班日",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": "为国庆调休，A股正常交易（周日补班）"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "LPR报价（9/20为周日调休，预计顺延至9/21周一）"
+    },
+    {
+      "date": "2026-09-23",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF期权行权日"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "中秋节休市",
+      "category": "holiday",
+      "importance": "high",
+      "time": "全天",
+      "note": "中秋节假期，A股休市（9/25-9/27）"
+    },
+    {
+      "date": "2026-09-26",
+      "title": "中秋节休市",
+      "category": "holiday",
+      "importance": "high",
+      "time": "全天",
+      "note": "中秋假期第二天"
+    },
+    {
+      "date": "2026-09-27",
+      "title": "中秋节休市",
+      "category": "holiday",
+      "importance": "high",
+      "time": "全天",
+      "note": "中秋假期第三天"
+    },
+    {
+      "date": "2026-09-28",
+      "title": "中国8月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "工业利润数据"
+    },
+    {
+      "date": "2026-09-30",
+      "title": "中国9月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "9月PMI，国庆前最后一个交易日"
+    },
+    {
+      "date": "2026-09-30",
+      "title": "美国8月核心PCE",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀指标"
+    },
+    {
+      "date": "2026-10-01",
+      "title": "国庆节休市（Day1）",
+      "category": "holiday",
+      "importance": "high",
+      "time": "全天",
+      "note": "国庆长假开始，A股休市7天"
+    },
+    {
+      "date": "2026-10-02",
+      "title": "美国9月非农数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "A股休市中，注意节后开盘跳空风险"
+    },
+    {
+      "date": "2026-10-03",
+      "title": "国庆节休市（Day3）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": ""
+    },
+    {
+      "date": "2026-10-04",
+      "title": "国庆节休市（Day4）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": ""
+    },
+    {
+      "date": "2026-10-05",
+      "title": "国庆节休市（Day5）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": ""
+    },
+    {
+      "date": "2026-10-06",
+      "title": "国庆节休市（Day6）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": ""
+    },
+    {
+      "date": "2026-10-07",
+      "title": "国庆节休市（Day7）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": "国庆长假最后一天"
+    },
+    {
+      "date": "2026-10-08",
+      "title": "A股节后首个交易日",
+      "category": "holiday",
+      "importance": "high",
+      "time": "开盘",
+      "note": "长假后首日，关注海外市场假期走势对A股的影响"
+    },
+    {
+      "date": "2026-10-10",
+      "title": "国庆调休补班日",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": "周六补班，A股正常交易"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "中国9月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "海关数据"
+    },
+    {
+      "date": "2026-10-14",
+      "title": "中国9月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "通胀数据（国庆后发布，预计推迟到10/14）"
+    },
+    {
+      "date": "2026-10-14",
+      "title": "美国9月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀数据"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "央行MLF操作",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "MLF操作利率"
+    },
+    {
+      "date": "2026-10-16",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货交割"
+    },
+    {
+      "date": "2026-10-19",
+      "title": "中国三季度GDP + 9月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "GDP增速（最关键经济数据）、工业、社零、固投、房地产等"
+    },
+    {
+      "date": "2026-10-20",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "贷款市场报价利率"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "中国9月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（国庆后推迟至10/15-10/20）"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "美联储FOMC议息会议（Day1）",
+      "category": "fomc",
+      "importance": "high",
+      "time": "全天",
+      "note": "10月议息第一天"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
+      "importance": "high",
+      "time": "02:00",
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF期权行权"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "中国9月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "工业利润"
+    },
+    {
+      "date": "2026-10-29",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
+    },
+    {
+      "date": "2026-10-30",
+      "title": "中国10月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "10月PMI"
+    },
+    {
+      "date": "2026-10-30",
+      "title": "美国9月核心PCE",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "核心通胀指标"
+    },
+    {
+      "date": "2026-10-31",
+      "title": "A股三季报披露截止日",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "所有上市公司三季报披露截止"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "三季报密集披露期开始",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "10月下半月三季报密集发布，关注业绩拐点"
+    },
+    {
+      "date": "2026-10-25",
+      "title": "政治局会议（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "不确定",
+      "note": "三季度经济形势分析，10月政治局会议定调政策"
+    },
+    {
+      "date": "2026-11-02",
+      "title": "中国10月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "财新PMI"
+    },
+    {
+      "date": "2026-11-04",
+      "title": "美国10月ADP就业人数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:15",
+      "note": "小非农（冬令时，北京时间推迟1小时）"
+    },
+    {
+      "date": "2026-11-06",
+      "title": "美国10月非农就业数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "冬令时非农"
+    },
+    {
+      "date": "2026-11-09",
+      "title": "中国10月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "通胀数据"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "美国10月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "核心通胀数据"
+    },
+    {
+      "date": "2026-11-11",
+      "title": "中国10月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（预计11/10-11/15）"
+    },
+    {
+      "date": "2026-11-10",
+      "title": "中国10月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸数据（预计11/7-11/10）"
+    },
+    {
+      "date": "2026-11-16",
+      "title": "中国10月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "工业、社零、固投、房地产等"
+    },
+    {
+      "date": "2026-11-16",
+      "title": "央行MLF操作（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "11/15为周日，预计顺延"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "LPR报价"
+    },
+    {
+      "date": "2026-11-20",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货交割"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF期权行权"
+    },
+    {
+      "date": "2026-11-25",
+      "title": "美国三季度GDP修正值",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "GDP修正数据"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "美国10月核心PCE",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "核心通胀指标，12月FOMC前关键参考"
+    },
+    {
+      "date": "2026-11-27",
+      "title": "中国10月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "工业利润"
+    },
+    {
+      "date": "2026-11-30",
+      "title": "中国11月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "11月PMI"
+    },
+    {
+      "date": "2026-12-01",
+      "title": "中国11月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "财新PMI"
+    },
+    {
+      "date": "2026-12-02",
+      "title": "美国11月ADP就业人数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:15",
+      "note": "小非农"
+    },
+    {
+      "date": "2026-12-04",
+      "title": "美国11月非农就业数据",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "年内最后一次非农数据"
+    },
+    {
+      "date": "2026-12-05",
+      "title": "中央政治局会议（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "不确定",
+      "note": "12月政治局会议，为中央经济工作会议吹风，定调明年宏观方向"
+    },
+    {
+      "date": "2026-12-07",
+      "title": "中国11月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸数据"
+    },
+    {
+      "date": "2026-12-08",
+      "title": "美联储FOMC议息会议（Day1）",
+      "category": "fomc",
+      "importance": "high",
+      "time": "全天",
+      "note": "年内最后一次议息第一天"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
+      "importance": "high",
+      "time": "03:00",
+      "note": "利率决议+点阵图+鲍威尔发布会；年内最重要FOMC"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "中国11月CPI+PPI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "通胀数据"
+    },
+    {
+      "date": "2026-12-10",
+      "title": "美国11月CPI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "核心通胀数据，FOMC会中公布"
+    },
+    {
+      "date": "2026-12-11",
+      "title": "中国11月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（预计12/10-12/15）"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "中国11月经济数据包",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "工业、社零、固投、房地产等"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "央行MLF操作",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "年内最后一次MLF操作"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "中央经济工作会议（预计Day1）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "全天",
+      "note": "全年最重要的经济工作会议，定调2027年经济政策"
+    },
+    {
+      "date": "2026-12-16",
+      "title": "中央经济工作会议（预计Day2）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "全天",
+      "note": "会议结束发布公报"
+    },
+    {
+      "date": "2026-12-18",
+      "title": "股指期货交割日（IF/IH）",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深300+上证50股指期货交割；年内最后一个交割日"
+    },
+    {
+      "date": "2026-12-21",
+      "title": "LPR利率公布",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:15",
+      "note": "12/20为周日，顺延至周一；年内最后一次LPR"
+    },
+    {
+      "date": "2026-12-23",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF期权行权；年内最后一个"
+    },
+    {
+      "date": "2026-12-23",
+      "title": "美国三季度GDP终值",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "GDP终值，经济增长最终确认"
+    },
+    {
+      "date": "2026-12-24",
+      "title": "美国11月核心PCE（预计）",
+      "category": "us-data",
+      "importance": "high",
+      "time": "21:30",
+      "note": "核心通胀指标"
+    },
+    {
+      "date": "2026-12-25",
+      "title": "圣诞节休市（A股正常）",
+      "category": "holiday",
+      "importance": "normal",
+      "time": "全天",
+      "note": "港股+美股休市，A股正常交易但交投清淡"
+    },
+    {
+      "date": "2026-12-28",
+      "title": "中国11月工业经济效益（预计）",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "12/27为周日，预计顺延"
+    },
+    {
+      "date": "2026-12-30",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货年内最后交割"
+    },
+    {
+      "date": "2026-12-31",
+      "title": "中国12月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "年内最后一份PMI；全年经济收官数据"
+    },
+    {
+      "date": "2026-12-31",
+      "title": "A股2026年收官交易日",
+      "category": "holiday",
+      "importance": "high",
+      "time": "收盘",
+      "note": "年度最后一个交易日，关注机构排名行情"
+    }
+  ]
+};
+  allEvents = data.events;
+  document.getElementById('updateInfo').textContent =
+    '📅 数据更新于 ' + data.updated + (data.auto_update ? ' · 每周四自动刷新' : '');
+  buildIndex();
+}
+
+function buildIndex() {
+  eventsByDate = {};
+  allEvents.forEach(e => {
+    if (!eventsByDate[e.date]) eventsByDate[e.date] = [];
+    eventsByDate[e.date].push(e);
+  });
+  renderCalendar();
+  buildLegend();
+  buildMonthNav();
+}
+
+function renderCalendar() {
+  const main = document.getElementById('calendarMain');
+  const months = [
+    { y: 2026, m: 7 }, { y: 2026, m: 8 }, { y: 2026, m: 9 },
+    { y: 2026, m: 10 }, { y: 2026, m: 11 }, { y: 2026, m: 12 }
+  ];
+  const today = new Date();
+  const todayStr = today.getFullYear() + '-' +
+    String(today.getMonth()+1).padStart(2,'0') + '-' +
+    String(today.getDate()).padStart(2,'0');
+
+  let html = '';
+  months.forEach(({y, m}) => {
+    const monthLabel = y + '年' + m + '月';
+    const firstDay = new Date(y, m-1, 1).getDay();
+    const daysInMonth = new Date(y, m, 0).getDate();
+    const adjustedFirst = firstDay === 0 ? 6 : firstDay - 1;
+    let eventCount = 0;
+
+    html += '<div class="month-block" id="month-' + m + '">';
+    html += '<div class="month-header"><h2>' + monthLabel + '</h2></div>';
+    html += '<div class="month-grid">';
+    ['一','二','三','四','五','六','日'].forEach((d, i) => {
+      html += '<div class="day-header' + (i >= 5 ? ' weekend' : '') + '">' + d + '</div>';
+    });
+    for (let i = 0; i < adjustedFirst; i++) {
+      html += '<div class="day-cell empty"></div>';
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateStr = y + '-' + String(m).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+      const isToday = dateStr === todayStr;
+      const col = (adjustedFirst + d - 1) % 7;
+      const isWeekend = col >= 5;
+      const dayEvents = eventsByDate[dateStr] || [];
+      const visibleEvents = dayEvents.filter(e => activeFilters.has(e.category));
+      if (visibleEvents.length > 0) eventCount += visibleEvents.length;
+
+      html += '<div class="day-cell' +
+        (isWeekend ? ' weekend-cell' : '') +
+        (isToday ? ' today' : '') +
+        '" data-date="' + dateStr + '" ' +
+        'onmouseenter="showTooltip(event,\'' + dateStr + '\')" ' +
+        'onmouseleave="hideTooltip()">';
+
+      const lunar = solarToLunar(y, m, d);
+      const lunarText = specialLunarDay(lunar.lYear, lunar.lMonth, lunar.lDay) || formatLunar(lunar);
+
+      html += '<div class="day-num">' + d + '</div>';
+      html += '<div class="day-lunar">' + lunarText + '</div>';
+      html += '<div class="day-events">';
+      const maxShow = 3;
+      visibleEvents.slice(0, maxShow).forEach(e => {
+        const cat = CATEGORY_MAP[e.category];
+        html += '<div class="event-tag ' + cat.cls + '" title="' + e.title + '">' +
+          (e.importance === 'high' ? '<span class="star">⭐</span>' : '') +
+          e.title + '</div>';
+      });
+      if (visibleEvents.length > maxShow) {
+        html += '<div class="more-events">+' + (visibleEvents.length - maxShow) + '条</div>';
+      }
+      html += '</div></div>';
+    }
+    html += '</div></div>';
+  });
+  main.innerHTML = html;
+  document.getElementById('monthNav').innerHTML = months.map(({m}) =>
+    '<a href="#month-' + m + '"' + (m === today.getMonth()+1 && today.getFullYear() === 2026 ? ' class="active"' : '') + '>' + m + '月</a>'
+  ).join(' ');
+}
+
+function buildLegend() {
+  const bar = document.getElementById('legendBar');
+  let html = '';
+  Object.entries(CATEGORY_MAP).forEach(([key, val]) => {
+    html += '<div class="legend-item" data-cat="' + key +
+      '" style="color:' + val.color + ';background:' + val.bg + ';border-color:' + val.color + '20;"' +
+      ' onclick="toggleFilter(\'' + key + '\')">' +
+      '<span class="legend-dot" style="background:' + val.color + '"></span>' +
+      val.name + '</div>';
+  });
+  bar.innerHTML = html;
+}
+
+function toggleFilter(cat) {
+  if (activeFilters.has(cat)) {
+    if (activeFilters.size > 1) activeFilters.delete(cat);
+  } else {
+    activeFilters.add(cat);
+  }
+  const items = document.querySelectorAll('.legend-item');
+  items.forEach(el => {
+    const c = el.dataset.cat;
+    if (activeFilters.has(c)) el.classList.remove('dimmed');
+    else el.classList.add('dimmed');
+  });
+  renderCalendar();
+}
+
+function buildMonthNav() {
+  document.getElementById('btnReset').addEventListener('click', () => {
+    activeFilters = new Set(Object.keys(CATEGORY_MAP));
+    document.querySelectorAll('.legend-item').forEach(el => el.classList.remove('dimmed'));
+    renderCalendar();
+  });
+}
+
+function scrollToToday() {
+  const today = new Date();
+  const m = today.getMonth() + 1;
+  const el = document.getElementById('month-' + m);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ========== TOOLTIP ==========
+let tooltipTimer = null;
+function showTooltip(e, dateStr) {
+  const dayEvents = eventsByDate[dateStr] || [];
+  const visibleEvents = dayEvents.filter(ev => activeFilters.has(ev.category));
+  if (visibleEvents.length === 0) return;
+
+  const tooltip = document.getElementById('tooltip');
+  let html = '<div class="tooltip-date">' + dateStr + ' · ' + visibleEvents.length + '个事件</div>';
+  visibleEvents.forEach(ev => {
+    const cat = CATEGORY_MAP[ev.category];
+    html += '<div class="tooltip-event">';
+    html += '<div class="tooltip-dot" style="background:' + cat.color + '"></div>';
+    html += '<div class="tooltip-body">';
+    html += '<div class="tooltip-title">' +
+      (ev.importance === 'high' ? '<span class="tooltip-high">⭐</span> ' : '') +
+      ev.title + '</div>';
+    if (ev.time) html += '<div class="tooltip-time">⏰ ' + ev.time + '</div>';
+    if (ev.note) html += '<div class="tooltip-note">' + ev.note + '</div>';
+    html += '</div></div>';
+  });
+  tooltip.innerHTML = html;
+  tooltip.classList.add('show');
+
+  const rect = tooltip.getBoundingClientRect();
+  let left = e.clientX + 16;
+  let top = e.clientY + 12;
+  if (left + rect.width > window.innerWidth - 10) left = e.clientX - rect.width - 16;
+  if (top + rect.height > window.innerHeight - 10) top = e.clientY - rect.height - 12;
+  tooltip.style.left = Math.max(10, left) + 'px';
+  tooltip.style.top = Math.max(10, top) + 'px';
+}
+
+function hideTooltip() {
+  document.getElementById('tooltip').classList.remove('show');
+}
+
+// ========== INIT ==========
+loadData();
+</script>
+</body>
+</html>
