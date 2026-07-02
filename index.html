@@ -469,11 +469,10 @@ let eventsByDate = {};
 let activeFilters = new Set(Object.keys(CATEGORY_MAP));
 
 function loadData() {
-  // 数据内嵌于HTML，避免file://协议的CORS限制
   const data = {
-  "updated": "2026-06-29",
+  "updated": "2026-07-02",
   "auto_update": true,
-  "next_update": "2026-07-02",
+  "next_update": "2026-07-09",
   "events": [
     {
       "date": "2026-07-01",
@@ -514,6 +513,46 @@ function loadData() {
       "importance": "normal",
       "time": "全天",
       "note": "美股休市，全球市场交投清淡"
+    },
+    {
+      "date": "2026-07-06",
+      "title": "A股交易新规正式施行",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "开盘",
+      "note": "沪深北三大交易所新规落地：①主板ST股涨跌幅由5%扩至10%；②盘后固定价格交易扩围至全部A股及沪深ETF；③基金尾盘最后3分钟仅可限价申报且不可撤单、统一集合竞价"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "全球人工智能大会（GAIC北京峰会）",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "7/8-7/9，北京中关村国际技术交易中心；主题「连接AI产业·链动全球」，聚焦算力、模型、应用；AI概念催化窗口"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "第二十五届中国互联网大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "7/8-7/10，北京国家会议中心；主题「智启新程·融创未来」；数字经济/算力/AI应用板块利好"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "A股周度大额解禁高峰",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "开盘",
+      "note": "7月A股解禁总规模约2500亿元（146家），屹唐股份7/8解禁15.33亿股（占总股本51.88%）、华电新能等大额解禁居前；注意减持压力"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "文昌航天发射+朱雀三号遥二首飞",
+      "category": "global",
+      "importance": "high",
+      "time": "约13:00",
+      "note": "7/10文昌商发2号工位有任务（具体型号未披露）；同时NOTAM显示7/10-7/13朱雀三号遥二可回收火箭首飞并挑战一级回收；商业航天概念催化"
     },
     {
       "date": "2026-07-09",
@@ -1526,8 +1565,7 @@ function loadData() {
   ]
 };
   allEvents = data.events;
-  document.getElementById('updateInfo').textContent =
-    '📅 数据更新于 ' + data.updated + (data.auto_update ? ' · 每周四自动刷新' : '');
+  document.getElementById("updateInfo").textContent = "📅 数据更新于 " + data.updated + (data.auto_update ? " · 每周四自动刷新" : "");
   buildIndex();
 }
 
