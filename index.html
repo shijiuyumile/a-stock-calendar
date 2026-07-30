@@ -469,10 +469,11 @@ let eventsByDate = {};
 let activeFilters = new Set(Object.keys(CATEGORY_MAP));
 
 function loadData() {
-  const data = {
-  "updated": "2026-07-23",
+  const data =
+{
+  "updated": "2026-07-30",
   "auto_update": true,
-  "next_update": "2026-07-30",
+  "next_update": "2026-08-06",
   "events": [
     {
       "date": "2026-07-01",
@@ -691,12 +692,12 @@ function loadData() {
       "note": "美联储最看重的通胀指标"
     },
     {
-      "date": "2026-07-25",
-      "title": "中央政治局会议（预计）",
+      "date": "2026-07-30",
+      "title": "中央政治局会议",
       "category": "cn-policy",
       "importance": "high",
-      "time": "不确定",
-      "note": "年中经济形势分析会，定调下半年政策方向；7月下旬召开"
+      "time": "全天",
+      "note": "已召开。决定10月召开二十届五中全会；下半年经济定调：实施更加积极的财政政策和适度宽松的货币政策，加大逆周期调节力度；加快「六张网」规划建设，深入实施「人工智能+」行动；稳定房地产市场，深化资本市场投融资综合改革"
     },
     {
       "date": "2026-08-03",
@@ -747,12 +748,12 @@ function loadData() {
       "note": "信用数据（预计8/10-8/15）"
     },
     {
-      "date": "2026-08-14",
+      "date": "2026-08-07",
       "title": "中国7月进出口数据",
       "category": "cn-data",
       "importance": "high",
       "time": "约11:00",
-      "note": "外贸形势（预计8/7-8/14）"
+      "note": "海关总署发布月度快讯；出口增速反映外需冷暖"
     },
     {
       "date": "2026-08-17",
@@ -1657,9 +1658,42 @@ function loadData() {
       "importance": "normal",
       "time": "全天",
       "note": "国家发改委核定第四监管周期省级电网输配电价、区域电网输电价格自8/1起执行；影响电力板块盈利预期"
+    },
+    {
+      "date": "2026-08-02",
+      "title": "OPEC+七国产量会议",
+      "category": "global",
+      "importance": "high",
+      "time": "不确定",
+      "note": "沙特、俄罗斯等7个OPEC+成员国审查市场状况和产量配额；8月起日产量合计增加18.8万桶；影响国际油价及石化板块"
+    },
+    {
+      "date": "2026-08-03",
+      "title": "港交所下调最低涨跌价第二阶段生效",
+      "category": "global",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "港股最低涨跌价位改革第二阶段实施，影响港股流动性及南下资金交易成本"
+    },
+    {
+      "date": "2026-08-03",
+      "title": "港交所推出5年期中国国债期货",
+      "category": "global",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "香港交易所正式推出5年期中国国债期货合约，丰富外资配置人民币债券资产的对冲工具"
+    },
+    {
+      "date": "2026-08-04",
+      "title": "SpaceX上市后首份季报",
+      "category": "global",
+      "importance": "normal",
+      "time": "盘后",
+      "note": "SpaceX上市后首次财报披露（美股盘后）；商业航天/卫星互联网概念催化窗口"
     }
   ]
-};
+}
+
   allEvents = data.events;
   document.getElementById("updateInfo").textContent = "📅 数据更新于 " + data.updated + (data.auto_update ? " · 每周四自动刷新" : "");
   buildIndex();
