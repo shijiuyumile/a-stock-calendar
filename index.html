@@ -469,11 +469,10 @@ let eventsByDate = {};
 let activeFilters = new Set(Object.keys(CATEGORY_MAP));
 
 function loadData() {
-  const data =
-{
-  "updated": "2026-07-30",
+  const data = {
+  "updated": "2026-08-06",
   "auto_update": true,
-  "next_update": "2026-08-06",
+  "next_update": "2026-08-13",
   "events": [
     {
       "date": "2026-07-01",
@@ -1690,10 +1689,49 @@ function loadData() {
       "importance": "normal",
       "time": "盘后",
       "note": "SpaceX上市后首次财报披露（美股盘后）；商业航天/卫星互联网概念催化窗口"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "宇树科技科创板网上申购",
+      "category": "global",
+      "importance": "high",
+      "time": "09:30",
+      "note": "「人形机器人第一股」宇树科技(688836)科创板IPO网上申购，初步询价日8/5；7/31已引发板块批量涨停，催化减速器、伺服电机、具身智能等概念"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "长鑫科技纳入MSCI中国全股票指数生效",
+      "category": "global",
+      "importance": "high",
+      "time": "开盘",
+      "note": "长鑫科技(CXMT)被纳入MSCI中国全股票指数正式生效；存储芯片龙头，预计带动被动资金流入A股半导体板块"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "中国经济论坛·民营经济高质量发展研讨会",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "全天",
+      "note": "8/10-8/11在广州南沙召开，主题「促进民营经济健康发展、高质量发展」；聚焦政策落实、新质生产力、金融支持等议题；民营经济板块关注"
+    },
+    {
+      "date": "2026-08-13",
+      "title": "中芯国际披露2026年Q2业绩",
+      "category": "earnings",
+      "importance": "high",
+      "time": "盘后",
+      "note": "中芯国际(688981)8/13交易时段后披露2026年第二季度业绩，8/14举行业绩说明会；内地晶圆代工龙头业绩对半导体板块影响重大"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "比尔·盖茨访韩讨论小型模块化反应堆",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "比尔·盖茨(TerraPower)与SK集团、HD现代集团旗下企业讨论小型模块化反应堆(SMR)业务合作；A股可控核聚变、核电板块概念催化"
     }
   ]
-}
-
+};
   allEvents = data.events;
   document.getElementById("updateInfo").textContent = "📅 数据更新于 " + data.updated + (data.auto_update ? " · 每周四自动刷新" : "");
   buildIndex();
