@@ -470,18 +470,10 @@ let activeFilters = new Set(Object.keys(CATEGORY_MAP));
 
 function loadData() {
   const data = {
-  "updated": "2026-10-22",
+  "updated": "2026-10-26",
   "auto_update": true,
   "next_update": "2026-10-29",
   "events": [
-    {
-      "date": "2026-07-01",
-      "title": "中国6月财新制造业PMI",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "09:45",
-      "note": "财新Markit制造业PMI，中小制造企业景气度"
-    },
     {
       "date": "2026-07-01",
       "title": "美国6月ADP就业人数",
@@ -489,6 +481,14 @@ function loadData() {
       "importance": "high",
       "time": "20:15",
       "note": "有「小非农」之称，前瞻非农走势"
+    },
+    {
+      "date": "2026-07-01",
+      "title": "中国6月财新制造业PMI",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:45",
+      "note": "财新Markit制造业PMI，中小制造企业景气度"
     },
     {
       "date": "2026-07-02",
@@ -524,6 +524,14 @@ function loadData() {
     },
     {
       "date": "2026-07-08",
+      "title": "A股周度大额解禁高峰",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "开盘",
+      "note": "7月A股解禁总规模约2500亿元（146家），屹唐股份7/8解禁15.33亿股（占总股本51.88%）、华电新能等大额解禁居前；注意减持压力"
+    },
+    {
+      "date": "2026-07-08",
       "title": "全球人工智能大会（GAIC北京峰会）",
       "category": "global",
       "importance": "normal",
@@ -537,22 +545,6 @@ function loadData() {
       "importance": "normal",
       "time": "全天",
       "note": "7/8-7/10，北京国家会议中心；主题「智启新程·融创未来」；数字经济/算力/AI应用板块利好"
-    },
-    {
-      "date": "2026-07-08",
-      "title": "A股周度大额解禁高峰",
-      "category": "cn-data",
-      "importance": "high",
-      "time": "开盘",
-      "note": "7月A股解禁总规模约2500亿元（146家），屹唐股份7/8解禁15.33亿股（占总股本51.88%）、华电新能等大额解禁居前；注意减持压力"
-    },
-    {
-      "date": "2026-07-10",
-      "title": "文昌航天发射+朱雀三号遥二首飞",
-      "category": "global",
-      "importance": "high",
-      "time": "约13:00",
-      "note": "7/10文昌商发2号工位有任务（具体型号未披露）；同时NOTAM显示7/10-7/13朱雀三号遥二可回收火箭首飞并挑战一级回收；商业航天概念催化"
     },
     {
       "date": "2026-07-09",
@@ -571,6 +563,14 @@ function loadData() {
       "note": "社会融资规模、货币供应量；信用扩张力度风向标（预计7/10-7/15）"
     },
     {
+      "date": "2026-07-10",
+      "title": "文昌航天发射+朱雀三号遥二首飞",
+      "category": "global",
+      "importance": "high",
+      "time": "约13:00",
+      "note": "7/10文昌商发2号工位有任务（具体型号未披露）；同时NOTAM显示7/10-7/13朱雀三号遥二可回收火箭首飞并挑战一级回收；商业航天概念催化"
+    },
+    {
       "date": "2026-07-13",
       "title": "中国6月进出口数据",
       "category": "cn-data",
@@ -585,6 +585,22 @@ function loadData() {
       "importance": "high",
       "time": "20:30",
       "note": "核心通胀数据，直接影响美联储加息预期"
+    },
+    {
+      "date": "2026-07-14",
+      "title": "美联储主席沃什众议院听证会",
+      "category": "global",
+      "importance": "high",
+      "time": "22:00",
+      "note": "美联储主席凯文·沃什就半年度货币政策报告向众议院金融服务委员会作证；美东时间7月14日上午10时，北京时间7月14日晚间22时（夏令时）；为7月底FOMC决议提供重要政策线索"
+    },
+    {
+      "date": "2026-07-15",
+      "title": "A股中报业绩预告披露截止日",
+      "category": "earnings",
+      "importance": "high",
+      "time": "收盘",
+      "note": "沪深主板、创业板上市公司上半年净利润同比涨跌超50%、亏损、扭亏为盈的必须在今日前完成预告披露；业绩雷与超预期集中释放，市场波动可能放大"
     },
     {
       "date": "2026-07-15",
@@ -603,12 +619,44 @@ function loadData() {
       "note": "中期借贷便利操作，LPR定价之锚"
     },
     {
+      "date": "2026-07-15",
+      "title": "美联储主席沃什参议院听证会",
+      "category": "global",
+      "importance": "high",
+      "time": "22:00",
+      "note": "美联储主席凯文·沃什就半年度货币政策报告向参议院银行委员会作证；美东时间7月15日上午10时，北京时间7月15日晚间22时（夏令时）；关注其对通胀、就业及降息路径的表态"
+    },
+    {
+      "date": "2026-07-16",
+      "title": "2026空天信息大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "2026空天信息大会召开，关注卫星互联网、商业航天、遥感应用等产业催化"
+    },
+    {
+      "date": "2026-07-17",
+      "title": "2026世界人工智能大会WAIC开幕",
+      "category": "global",
+      "importance": "high",
+      "time": "开幕",
+      "note": "2026世界人工智能大会暨人工智能全球治理高级别会议在上海开幕（7/17-7/20），主题为「智能伙伴 共创未来」；展览面积首超10万平方米，1100余家企业参展，300余款产品全球首发；AI算力、具身智能、数据要素等概念催化窗口"
+    },
+    {
       "date": "2026-07-17",
       "title": "股指期货交割日（IF/IH）",
       "category": "futures",
       "importance": "high",
       "time": "收盘",
       "note": "沪深300+上证50股指期货当月合约到期交割，尾盘波动加剧"
+    },
+    {
+      "date": "2026-07-18",
+      "title": "中船特气披露沪市首份中报",
+      "category": "earnings",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "中船特气预计披露沪市首份2026年半年报，拉开A股中报披露序幕；具体披露时点待确认"
     },
     {
       "date": "2026-07-20",
@@ -620,11 +668,43 @@ function loadData() {
     },
     {
       "date": "2026-07-21",
+      "title": "2026中国汽车论坛",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "2026中国汽车论坛举办，聚焦汽车产业发展趋势、新能源、智能驾驶等"
+    },
+    {
+      "date": "2026-07-21",
       "title": "欧洲央行议息会议",
       "category": "global",
       "importance": "normal",
       "time": "20:15",
       "note": "ECB利率决议，影响欧元汇率及全球流动性"
+    },
+    {
+      "date": "2026-07-22",
+      "title": "2026上海核能产业博览会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "2026上海核能可持续发展大会暨上海国际核能产业博览会同期举办，聚焦核电技术、可控核聚变等"
+    },
+    {
+      "date": "2026-07-22",
+      "title": "2026国际低空经济博览会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "2026国际低空经济博览会举办，聚焦无人机应用、eVTOL、低空通航等"
+    },
+    {
+      "date": "2026-07-27",
+      "title": "4000亿元MLF到期",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "1年期中期借贷便利到期，关注央行续作规模及利率；流动性关键节点"
     },
     {
       "date": "2026-07-27",
@@ -644,14 +724,6 @@ function loadData() {
     },
     {
       "date": "2026-07-29",
-      "title": "美联储FOMC决议+新闻发布会",
-      "category": "fomc",
-      "importance": "high",
-      "time": "02:00",
-      "note": "沃什主持利率决议；市场定价加息25bp概率约30%、维持不变约70%；本次无点阵图/经济预测；沃什已取消前瞻指引，市场分歧极大"
-    },
-    {
-      "date": "2026-07-29",
       "title": "ETF期权交割日",
       "category": "futures",
       "importance": "high",
@@ -659,12 +731,12 @@ function loadData() {
       "note": "上证50ETF等ETF期权行权日"
     },
     {
-      "date": "2026-07-30",
-      "title": "美国二季度GDP初值",
-      "category": "us-data",
+      "date": "2026-07-29",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
       "importance": "high",
-      "time": "20:30",
-      "note": "美国经济增长态势核心指标"
+      "time": "02:00",
+      "note": "沃什主持利率决议；市场定价加息25bp概率约30%、维持不变约70%；本次无点阵图/经济预测；沃什已取消前瞻指引，市场分歧极大"
     },
     {
       "date": "2026-07-30",
@@ -675,12 +747,20 @@ function loadData() {
       "note": "官方制造业+非制造业PMI，经济景气度先行指标"
     },
     {
-      "date": "2026-07-31",
-      "title": "A50期货交割日",
-      "category": "futures",
-      "importance": "normal",
-      "time": "收盘",
-      "note": "富时中国A50指数期货交割，外资对冲盘面变化"
+      "date": "2026-07-30",
+      "title": "中央政治局会议",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "全天",
+      "note": "已召开。决定10月召开二十届五中全会；下半年经济定调：实施更加积极的财政政策和适度宽松的货币政策，加大逆周期调节力度；加快「六张网」规划建设，深入实施「人工智能+」行动；稳定房地产市场，深化资本市场投融资综合改革"
+    },
+    {
+      "date": "2026-07-30",
+      "title": "美国二季度GDP初值",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美国经济增长态势核心指标"
     },
     {
       "date": "2026-07-31",
@@ -691,12 +771,36 @@ function loadData() {
       "note": "美联储最看重的通胀指标"
     },
     {
-      "date": "2026-07-30",
-      "title": "中央政治局会议",
-      "category": "cn-policy",
-      "importance": "high",
+      "date": "2026-07-31",
+      "title": "2026 ChinaJoy开幕",
+      "category": "global",
+      "importance": "normal",
       "time": "全天",
-      "note": "已召开。决定10月召开二十届五中全会；下半年经济定调：实施更加积极的财政政策和适度宽松的货币政策，加大逆周期调节力度；加快「六张网」规划建设，深入实施「人工智能+」行动；稳定房地产市场，深化资本市场投融资综合改革"
+      "note": "中国国际数码互动娱乐展览会(7/31-8/3)，游戏/数字娱乐/AI应用板块催化"
+    },
+    {
+      "date": "2026-07-31",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "富时中国A50指数期货交割，外资对冲盘面变化"
+    },
+    {
+      "date": "2026-08-01",
+      "title": "省级电网输配电价新规执行",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "全天",
+      "note": "国家发改委核定第四监管周期省级电网输配电价、区域电网输电价格自8/1起执行；影响电力板块盈利预期"
+    },
+    {
+      "date": "2026-08-02",
+      "title": "OPEC+七国产量会议",
+      "category": "global",
+      "importance": "high",
+      "time": "不确定",
+      "note": "沙特、俄罗斯等7个OPEC+成员国审查市场状况和产量配额；8月起日产量合计增加18.8万桶；影响国际油价及石化板块"
     },
     {
       "date": "2026-08-03",
@@ -707,12 +811,44 @@ function loadData() {
       "note": "中小制造企业景气度"
     },
     {
+      "date": "2026-08-03",
+      "title": "港交所下调最低涨跌价第二阶段生效",
+      "category": "global",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "港股最低涨跌价位改革第二阶段实施，影响港股流动性及南下资金交易成本"
+    },
+    {
+      "date": "2026-08-03",
+      "title": "港交所推出5年期中国国债期货",
+      "category": "global",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "香港交易所正式推出5年期中国国债期货合约，丰富外资配置人民币债券资产的对冲工具"
+    },
+    {
+      "date": "2026-08-05",
+      "title": "SpaceX上市后首份季报",
+      "category": "global",
+      "importance": "normal",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 8月4日 周二 盘后披露；对应北京时间 8月5日 周三 凌晨）；SpaceX上市后首次财报披露（美股盘后）；商业航天/卫星互联网概念催化窗口"
+    },
+    {
       "date": "2026-08-05",
       "title": "美国7月ADP就业人数",
       "category": "us-data",
       "importance": "high",
       "time": "20:15",
       "note": "小非农，前瞻非农"
+    },
+    {
+      "date": "2026-08-07",
+      "title": "中国7月进出口数据",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "海关总署发布月度快讯；出口增速反映外需冷暖"
     },
     {
       "date": "2026-08-07",
@@ -731,6 +867,30 @@ function loadData() {
       "note": "通胀形势（8/9为周日，预计顺延至8/10）"
     },
     {
+      "date": "2026-08-10",
+      "title": "宇树科技科创板网上申购",
+      "category": "global",
+      "importance": "high",
+      "time": "09:30",
+      "note": "「人形机器人第一股」宇树科技(688836)科创板IPO网上申购，初步询价日8/5；7/31已引发板块批量涨停，催化减速器、伺服电机、具身智能等概念"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "长鑫科技纳入MSCI中国全股票指数生效",
+      "category": "global",
+      "importance": "high",
+      "time": "开盘",
+      "note": "长鑫科技(CXMT)被纳入MSCI中国全股票指数正式生效；存储芯片龙头，预计带动被动资金流入A股半导体板块"
+    },
+    {
+      "date": "2026-08-10",
+      "title": "中国经济论坛·民营经济高质量发展研讨会",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "全天",
+      "note": "8/10-8/11在广州南沙召开，主题「促进民营经济健康发展、高质量发展」；聚焦政策落实、新质生产力、金融支持等议题；民营经济板块关注"
+    },
+    {
       "date": "2026-08-12",
       "title": "美国7月CPI",
       "category": "us-data",
@@ -747,12 +907,28 @@ function loadData() {
       "note": "信用数据（预计8/10-8/15）"
     },
     {
-      "date": "2026-08-07",
-      "title": "中国7月进出口数据",
-      "category": "cn-data",
+      "date": "2026-08-13",
+      "title": "中芯国际披露2026年Q2业绩",
+      "category": "earnings",
       "importance": "high",
-      "time": "约11:00",
-      "note": "海关总署发布月度快讯；出口增速反映外需冷暖"
+      "time": "盘后",
+      "note": "中芯国际(688981)8/13交易时段后披露2026年第二季度业绩，8/14举行业绩说明会；内地晶圆代工龙头业绩对半导体板块影响重大"
+    },
+    {
+      "date": "2026-08-14",
+      "title": "比尔·盖茨访韩讨论小型模块化反应堆",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "比尔·盖茨(TerraPower)与SK集团、HD现代集团旗下企业讨论小型模块化反应堆(SMR)业务合作；A股可控核聚变、核电板块概念催化"
+    },
+    {
+      "date": "2026-08-15",
+      "title": "中报密集披露期开始",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "8月下半月进入中报密集发布窗口，业绩暴雷/超预期频现"
     },
     {
       "date": "2026-08-17",
@@ -787,12 +963,44 @@ function loadData() {
       "note": "沪深300+上证50股指期货交割"
     },
     {
+      "date": "2026-08-25",
+      "title": "A股限售股解禁小高峰",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "奥来德(688378)解禁832万股(占总股本3.18%)、苏盐井神(603299)解禁约1.64亿股(占20.97%)；注意相关个股抛压"
+    },
+    {
       "date": "2026-08-26",
       "title": "ETF期权交割日",
       "category": "futures",
       "importance": "high",
       "time": "收盘",
       "note": "上证50ETF等期权行权"
+    },
+    {
+      "date": "2026-08-26",
+      "title": "百度集团股东特别大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "09:00",
+      "note": "审议自愿转换为香港联交所主要上市相关授权及2026年股权激励计划；预计年内生效，关注港股通纳入预期"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "英伟达发布2026财年第二季度财报",
+      "category": "global",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 8月26日 周三 盘后披露；对应北京时间 8月27日 周四 凌晨）；全球AI总龙头Q2 FY2027业绩，关注Blackwell出货、数据中心收入及下季指引；直接影响A股光模块、PCB、算力租赁等板块"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "杰克逊霍尔全球央行年会开幕",
+      "category": "global",
+      "importance": "high",
+      "time": "全天",
+      "note": "8/27-8/29召开，主题为「金融创新：支付体系与货币政策的影响」；全球主要央行行长及经济学家齐聚，9月FOMC前最重要的政策风向窗口"
     },
     {
       "date": "2026-08-27",
@@ -804,6 +1012,22 @@ function loadData() {
     },
     {
       "date": "2026-08-28",
+      "title": "美国7月核心PCE物价指数",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美联储关注的核心通胀指标"
+    },
+    {
+      "date": "2026-08-28",
+      "title": "美联储主席杰克逊霍尔主旨演讲",
+      "category": "global",
+      "importance": "high",
+      "time": "约22:00",
+      "note": "新任美联储主席沃什首次在杰克逊霍尔发表主旨演讲，市场关注其对通胀、降息路径及中性利率的表态；鹰鸽信号将重塑全球风险偏好"
+    },
+    {
+      "date": "2026-08-28",
       "title": "A50期货交割日",
       "category": "futures",
       "importance": "normal",
@@ -812,19 +1036,19 @@ function loadData() {
     },
     {
       "date": "2026-08-28",
-      "title": "美国7月核心PCE物价指数",
-      "category": "us-data",
-      "importance": "high",
-      "time": "20:30",
-      "note": "美联储关注的核心通胀指标"
+      "title": "国内成品油调价窗口",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "24时",
+      "note": "新一轮成品油零售价调整，国际油价波动将影响炼化、物流及交通运输板块"
     },
     {
-      "date": "2026-08-31",
-      "title": "中国8月官方PMI",
-      "category": "cn-data",
+      "date": "2026-08-29",
+      "title": "杰克逊霍尔全球央行年会闭幕",
+      "category": "global",
       "importance": "high",
-      "time": "09:30",
-      "note": "官方制造业PMI"
+      "time": "全天",
+      "note": "2026年杰克逊霍尔经济政策研讨会闭幕；全球央行行长及学者围绕「金融创新：支付体系与货币政策的影响」研讨后，市场集中消化政策信号，影响9月FOMC预期定价"
     },
     {
       "date": "2026-08-31",
@@ -835,12 +1059,20 @@ function loadData() {
       "note": "所有上市公司半年报披露截止；8月下旬为密集披露期"
     },
     {
-      "date": "2026-08-15",
-      "title": "中报密集披露期开始",
-      "category": "earnings",
+      "date": "2026-08-31",
+      "title": "中国8月官方PMI",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "09:30",
+      "note": "官方制造业PMI"
+    },
+    {
+      "date": "2026-09-01",
+      "title": "《2026年版国家基本药物目录》正式实施",
+      "category": "cn-policy",
       "importance": "high",
       "time": "全天",
-      "note": "8月下半月进入中报密集发布窗口，业绩暴雷/超预期频现"
+      "note": "时隔八年首次更新，共收录药品794种（新增116种），16种创新药首次纳入（含4种国产Ⅰ类新药）；荣昌生物、康诺亚、先声药业、石药集团等A股药企核心产品受益；医药板块政策催化"
     },
     {
       "date": "2026-09-01",
@@ -859,6 +1091,22 @@ function loadData() {
       "note": "小非农"
     },
     {
+      "date": "2026-09-02",
+      "title": "大商所焦炭期权上市交易",
+      "category": "futures",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "大连商品交易所焦炭期权正式挂牌交易，丰富黑色系产业链衍生品工具"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "2026世界动力电池大会开幕（宜宾）",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/3-9/4召开，经国务院批准，主题「电驱万物·融合共生」；特斯拉、宁德时代、比亚迪等逾120家龙头参会；发布《动力电池产业发展指数》《动力电池技术路线图》；新能源/电池/储能板块催化"
+    },
+    {
       "date": "2026-09-04",
       "title": "美国8月非农就业数据",
       "category": "us-data",
@@ -867,12 +1115,108 @@ function loadData() {
       "note": "非农数据"
     },
     {
+      "date": "2026-09-04",
+      "title": "第32次APEC中小企业部长会议",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "APEC中小企业部长会议，关注区域经济合作及贸易政策动向"
+    },
+    {
+      "date": "2026-09-07",
+      "title": "A股限售股解禁高峰",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "当日16家公司限售股解禁，市值约303亿元；华峰铝业解禁116.59亿元（占总股本72.17%）、固德威解禁81.09亿元；注意相关个股抛压"
+    },
+    {
+      "date": "2026-09-07",
+      "title": "中国8月外汇储备",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "约10:00",
+      "note": "央行公布8月官方外汇储备，观察资本流动与汇率稳定信号"
+    },
+    {
+      "date": "2026-09-07",
+      "title": "华为Mate XT2三折叠及全场景新品发布会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "华为全新展翼三折叠HUAWEI Mate XT2非凡大师真机发布；消费电子/华为链催化窗口"
+    },
+    {
+      "date": "2026-09-08",
+      "title": "中国8月贸易帐-人民币计价",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "约10:00",
+      "note": "海关总署公布人民币计价贸易差额，反映出口韧性与贸易顺差变化"
+    },
+    {
       "date": "2026-09-09",
       "title": "中国8月CPI+PPI",
       "category": "cn-data",
       "importance": "high",
       "time": "09:30",
       "note": "通胀数据"
+    },
+    {
+      "date": "2026-09-09",
+      "title": "2026中国国际服务贸易交易会开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/9-9/12北京召开，设置金融科技、数字经济、AI服务、出海服务专区；数字服务/金融科技/AI应用板块关注"
+    },
+    {
+      "date": "2026-09-09",
+      "title": "财政部续发50年期超长期特别国债",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "竞争性招标面值总额350亿元；关注超长债供给对资金面及债市的扰动"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "中国8月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸数据（预计9/7-9/10）"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "苹果秋季特别活动暨iPhone18折叠屏首发",
+      "category": "global",
+      "importance": "high",
+      "time": "约01:00",
+      "note": "北京时间9月10日凌晨举行，推出iPhone18 Pro/Pro Max及首款折叠屏iPhone；果链/消费电子年度催化"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "上期所3只期权新品种上市",
+      "category": "futures",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "热轧卷板、不锈钢、低硫燃料油期权上市交易；丰富黑色系及能化产业链衍生品工具"
+    },
+    {
+      "date": "2026-09-11",
+      "title": "中国8月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（预计9/10-9/15）"
+    },
+    {
+      "date": "2026-09-11",
+      "title": "科创50指数样本调整生效",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "收盘后",
+      "note": "本次更换5只样本，调入睿创微纳、华丰科技、屹唐股份、影石创新、盛合晶微，调出凯赛生物、中无人机等；跟踪被动资金将同步调仓"
     },
     {
       "date": "2026-09-11",
@@ -884,19 +1228,27 @@ function loadData() {
     },
     {
       "date": "2026-09-11",
-      "title": "中国8月社融/M2（预计）",
-      "category": "cn-data",
-      "importance": "high",
-      "time": "约16:00",
-      "note": "信用数据（预计9/10-9/15）"
+      "title": "2026中国算力大会开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/11-9/13河北廊坊举行，聚焦液冷、AI服务器、算力网络、国产算力芯片；AI算力/服务器/液冷板块催化"
     },
     {
-      "date": "2026-09-10",
-      "title": "中国8月进出口数据（预计）",
+      "date": "2026-09-13",
+      "title": "亚德诺(ADI)全产品线涨价生效",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "全球模拟芯片龙头年内第二轮全产品组合价格调整；模拟芯片/半导体周期反转信号，利好国产替代"
+    },
+    {
+      "date": "2026-09-14",
+      "title": "科创板指数三季度调样正式生效",
       "category": "cn-data",
-      "importance": "high",
-      "time": "约11:00",
-      "note": "外贸数据（预计9/7-9/10）"
+      "importance": "normal",
+      "time": "开盘",
+      "note": "科创板相关指数成分股调整生效，跟踪型资金被动调仓，注意相关个股波动"
     },
     {
       "date": "2026-09-15",
@@ -908,11 +1260,27 @@ function loadData() {
     },
     {
       "date": "2026-09-15",
+      "title": "国新办8月国民经济运行发布会+70城房价",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "10:00",
+      "note": "国家统计局发布8月工业增加值、社零、固投等经济数据并举行发布会，同步公布70城房价；观察国内经济成色"
+    },
+    {
+      "date": "2026-09-15",
       "title": "央行MLF操作",
       "category": "cn-policy",
       "importance": "high",
       "time": "09:20",
       "note": "MLF操作"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "美国对加拿大加征50%关税生效、加报复关税生效",
+      "category": "global",
+      "importance": "high",
+      "time": "全天",
+      "note": "美加贸易战升级：美方对约100类加商品加征50%关税，加方280亿加元报复关税同步生效；全球贸易摩擦升温，关注出口链与国产替代"
     },
     {
       "date": "2026-09-15",
@@ -923,6 +1291,30 @@ function loadData() {
       "note": "9月议息第一天"
     },
     {
+      "date": "2026-09-15",
+      "title": "日美澳\"东方之盾\"联合演习启动",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/15-9/24在日本多地举行，区域军事活动密集；持续催化军工主题热度"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "第五届北斗规模应用国际峰会开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/15-9/16湖南株洲召开，聚焦交通、农业、工业高精度定位落地；北斗导航/卫星应用板块催化"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "第十三届北京香山论坛开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/15-9/17北京举办，国际安全防务议题；军工板块关注"
+    },
+    {
       "date": "2026-09-16",
       "title": "美联储FOMC决议+新闻发布会",
       "category": "fomc",
@@ -931,12 +1323,52 @@ function loadData() {
       "note": "利率决议+经济预测摘要（点阵图）+鲍威尔发布会"
     },
     {
+      "date": "2026-09-16",
+      "title": "博迈医疗创业板IPO、九目化学北交所IPO上会",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "全天",
+      "note": "深交所/北交所上市委审议博迈医疗（创业板，血管介入器械）和九目化学（北交所，OLED材料）首发事项"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "香港首个五年规划及新施政报告公布",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "香港特区政府公布首个五年发展规划及新一份施政报告，涉及跨境贸易、金融开放等核心内容"
+    },
+    {
+      "date": "2026-09-17",
+      "title": "2026全球XDC创新峰会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "聚焦创新药、CXO行业前沿动态；医药板块事件催化"
+    },
+    {
+      "date": "2026-09-17",
+      "title": "日本央行利率决议",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "日本央行议息会议，影响日元汇率与亚洲市场流动性预期"
+    },
+    {
       "date": "2026-09-18",
       "title": "股指期货交割日（IF/IH）",
       "category": "futures",
       "importance": "high",
       "time": "收盘",
       "note": "沪深300+上证50股指期货交割"
+    },
+    {
+      "date": "2026-09-19",
+      "title": "第四届CCF智能汽车学术年会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "覆盖自动驾驶、车规芯片等技术方向；智能汽车/车联网板块关注"
     },
     {
       "date": "2026-09-20",
@@ -955,6 +1387,38 @@ function loadData() {
       "note": "LPR报价（9/20为周日调休，预计顺延至9/21周一）"
     },
     {
+      "date": "2026-09-21",
+      "title": "中证港股通人工智能应用指数发布",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "收盘后",
+      "note": "中证指数公司发布中证港股通人工智能应用指数，为港股AI应用板块提供投资标的参考"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "标普道琼斯指数调整生效",
+      "category": "global",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "标普中盘股400、标普500、标普100等指数成分股调整生效，跟踪型资金被动调仓"
+    },
+    {
+      "date": "2026-09-22",
+      "title": "第48届世界技能大赛上海开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "晚间",
+      "note": "9/22-9/27上海举行，被誉为「世界技能奥林匹克」，关注技能人才、职业教育及高端制造相关主题"
+    },
+    {
+      "date": "2026-09-22",
+      "title": "苹果新款Mac Studio门店开售",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "搭载M5 Max/Ultra芯片的新款Mac Studio正式开售，消费电子/苹果链催化"
+    },
+    {
       "date": "2026-09-23",
       "title": "ETF期权交割日",
       "category": "futures",
@@ -963,12 +1427,52 @@ function loadData() {
       "note": "上证50ETF期权行权日"
     },
     {
-      "date": "2026-09-25",
-      "title": "A50期货交割日",
+      "date": "2026-09-23",
+      "title": "华为Mate 90系列秋季发布会",
+      "category": "global",
+      "importance": "high",
+      "time": "全天",
+      "note": "华为年度旗舰Mate 90系列暨Mate XT2三折叠手机发布，首发基于「韬定律」的新一代麒麟芯片；消费电子/华为链/半导体重点关注"
+    },
+    {
+      "date": "2026-09-23",
+      "title": "高通2026骁龙峰会开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "9/23-9/25举行，新一代骁龙旗舰移动平台发布，利好消费电子、AI终端及芯片产业链"
+    },
+    {
+      "date": "2026-09-24",
+      "title": "中秋长假前最后一个完整交易日",
+      "category": "holiday",
+      "importance": "high",
+      "time": "收盘",
+      "note": "9/25-9/27中秋休市，节前最后一个完整交易日，资金通常避险缩量，注意高位题材股抛压"
+    },
+    {
+      "date": "2026-09-24",
+      "title": "上期所不锈钢期货业务细则修订实施",
       "category": "futures",
       "importance": "normal",
-      "time": "收盘",
-      "note": "A50期货交割"
+      "time": "开盘",
+      "note": "《上海期货交易所不锈钢期货业务细则(修订版)》实施，影响不锈钢期货合约交易规则"
+    },
+    {
+      "date": "2026-09-24",
+      "title": "国内成品油调价窗口开启",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "24时",
+      "note": "新一轮成品油零售价调整，国际油价波动将影响炼化、物流及交通运输板块"
+    },
+    {
+      "date": "2026-09-24",
+      "title": "央行货币政策委员会三季度例会（预计）",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "三季度例会通常于9月下旬召开，具体日期待确认；关注货币政策定调及信贷增长表述"
     },
     {
       "date": "2026-09-25",
@@ -977,6 +1481,14 @@ function loadData() {
       "importance": "high",
       "time": "全天",
       "note": "中秋节假期，A股休市（9/25-9/27）"
+    },
+    {
+      "date": "2026-09-25",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
     },
     {
       "date": "2026-09-26",
@@ -1052,6 +1564,14 @@ function loadData() {
     },
     {
       "date": "2026-10-05",
+      "title": "美国9月ISM非制造业PMI",
+      "category": "us-data",
+      "importance": "high",
+      "time": "22:00",
+      "note": "美国9月ISM服务业PMI，反映服务业景气度，影响美联储政策预期与全球风险偏好"
+    },
+    {
+      "date": "2026-10-05",
       "title": "国庆节休市（Day5）",
       "category": "holiday",
       "importance": "normal",
@@ -1060,11 +1580,27 @@ function loadData() {
     },
     {
       "date": "2026-10-06",
+      "title": "北交所交易系统联调测试",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "09:15-12:00",
+      "note": "北交所定于10月6日9:15至12:00进行交易系统联调测试，保障节后交易正常进行"
+    },
+    {
+      "date": "2026-10-06",
       "title": "国庆节休市（Day6）",
       "category": "holiday",
       "importance": "normal",
       "time": "全天",
       "note": ""
+    },
+    {
+      "date": "2026-10-07",
+      "title": "美联储9月FOMC会议纪要",
+      "category": "fomc",
+      "importance": "high",
+      "time": "02:00",
+      "note": "9月15-16日FOMC会议纪要发布，披露加息决策细节与内部分歧；全球市场关注政策路径线索"
     },
     {
       "date": "2026-10-07",
@@ -1083,6 +1619,30 @@ function loadData() {
       "note": "长假后首日，关注海外市场假期走势对A股的影响"
     },
     {
+      "date": "2026-10-08",
+      "title": "美国上周初请失业金人数",
+      "category": "us-data",
+      "importance": "normal",
+      "time": "20:30",
+      "note": "A股节后首日，美国劳动力市场数据或影响海外情绪传导"
+    },
+    {
+      "date": "2026-10-09",
+      "title": "美国10月密歇根大学消费者信心指数初值",
+      "category": "us-data",
+      "importance": "normal",
+      "time": "22:00",
+      "note": "美国消费者信心初值，反映消费前景与通胀预期"
+    },
+    {
+      "date": "2026-10-09",
+      "title": "通则康威创业板IPO申购",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:15",
+      "note": "广州通则康威科技创业板IPO网上申购日，网下与网上申购同日进行；关注新股冻资效应"
+    },
+    {
       "date": "2026-10-10",
       "title": "国庆调休补班日",
       "category": "holiday",
@@ -1097,6 +1657,22 @@ function loadData() {
       "importance": "high",
       "time": "约11:00",
       "note": "海关数据"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "A股周一解禁小高峰",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "当日约22家公司解禁：陕西能源231.84亿元(占总股本64%)、首药控股29.44亿(56.96%)、金科股份21.96亿(17%)、奥美森11.42亿(69.51%)等；注意相关个股抛压"
+    },
+    {
+      "date": "2026-10-12",
+      "title": "IMF/世界银行秋季年会开幕（曼谷）",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/12-10/18在泰国曼谷举行；10/13发布《世界经济展望》(WEO)与《全球金融稳定报告》(GFSR)，10/16 IMF总裁与美联储主席沃什炉边对话；关注全球经济预测与政策信号"
     },
     {
       "date": "2026-10-14",
@@ -1115,12 +1691,52 @@ function loadData() {
       "note": "核心通胀数据"
     },
     {
+      "date": "2026-10-14",
+      "title": "2026世界储能大会开幕（宁德）",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/14-10/16福建宁德举行，主题「智储新程 绿动全球」，首次增设算电协同与AI智储融合议题；宁德时代链、储能/锂电板块催化"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "三季报密集披露期开始",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "10月下半月三季报密集发布，关注业绩拐点"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "中国9月社融/M2（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约16:00",
+      "note": "信用数据（国庆后推迟至10/15-10/20）"
+    },
+    {
       "date": "2026-10-15",
       "title": "央行MLF操作",
       "category": "cn-policy",
       "importance": "high",
       "time": "09:20",
       "note": "MLF操作利率"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "国内成品油调价窗口",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "24时",
+      "note": "年内第20次调价窗口（上轮9/24上调后格局「十三涨五跌一搁浅」）；中东地缘扰动下国际油价高位波动，影响炼化、物流板块"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "第140届广交会第一期开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/15-10/19广州举行，第一期「先进制造」，展览面积155万平方米；观察外贸景气度与出口链订单信号"
     },
     {
       "date": "2026-10-16",
@@ -1132,11 +1748,35 @@ function loadData() {
     },
     {
       "date": "2026-10-19",
+      "title": "东兴证券、信达证券终止上市（中金换股吸收合并）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "开盘",
+      "note": "中金公司发行A股换股吸收合并东兴证券、信达证券，两家公司10/19起终止上市、不进入退市整理期，原股东股票按换股比例转换为中金A股；券商合并重组主题关注"
+    },
+    {
+      "date": "2026-10-19",
       "title": "中国三季度GDP + 9月经济数据包",
       "category": "cn-data",
       "importance": "high",
       "time": "10:00",
       "note": "GDP增速（最关键经济数据）、工业、社零、固投、房地产等"
+    },
+    {
+      "date": "2026-10-19",
+      "title": "2026中国汽车供应链大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/19-10/21召开，聚焦汽车供应链安全与智能化；汽车零部件板块催化"
+    },
+    {
+      "date": "2026-10-19",
+      "title": "皇冠新材深市主板IPO申购",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:15",
+      "note": "功能性复合材料厂商皇冠新材(001381)深主板网上申购，拟发行5630万股、募资约10.3亿元；中金公司承销"
     },
     {
       "date": "2026-10-20",
@@ -1147,12 +1787,76 @@ function loadData() {
       "note": "贷款市场报价利率"
     },
     {
-      "date": "2026-10-15",
-      "title": "中国9月社融/M2（预计）",
-      "category": "cn-data",
+      "date": "2026-10-20",
+      "title": "APEC财政部长会议（中国香港）",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/20-10/21在香港举行，关注区域财金合作与宏观政策信号"
+    },
+    {
+      "date": "2026-10-21",
+      "title": "2026世界智能网联汽车大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "智能驾驶、车路协同、车规芯片等方向；智能汽车板块催化"
+    },
+    {
+      "date": "2026-10-21",
+      "title": "第93届全国药品交易会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "全国药品交易会开幕，医药流通与创新药商务对接；医药板块关注"
+    },
+    {
+      "date": "2026-10-22",
+      "title": "特斯拉 Tesla 2026年Q3财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "约16:00",
-      "note": "信用数据（国庆后推迟至10/15-10/20）"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月21日 周三 盘后披露；对应北京时间 10月22日 周四 凌晨）；美股科技巨头三季度财报季拉开序幕（预计10/21盘后，北京时间10/22凌晨）；关注交付量、毛利率、储能与Robotaxi进展；具体日期以公司公告为准"
+    },
+    {
+      "date": "2026-10-23",
+      "title": "2026 ESMO欧洲肿瘤内科学会大会开幕",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/23-10/27举行，全球肿瘤临床研究重磅数据密集发布；创新药/ADC/CXO板块催化"
+    },
+    {
+      "date": "2026-10-25",
+      "title": "政治局会议（预计）",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "不确定",
+      "note": "三季度经济形势分析，10月政治局会议定调政策"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "二十届五中全会开幕",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "全天",
+      "note": "10/26-10/29北京召开，审议「十五五」规划建议；本周A股最重要政策事件，会议公报（预计10/29）对市场主线定调影响重大"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "CPE2026国际算电展",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/26-10/28举办，聚焦算力与电力协同（算电协同）；AI算力、储能、绿电板块催化"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "上证系列综合指数编制方案修订实施",
+      "category": "cn-policy",
+      "importance": "normal",
+      "time": "开盘",
+      "note": "上交所、中证指数公司修订上证系列综合指数编制方案正式实施；同日北交所无价格涨跌幅限制股票大宗交易申报价格范围新规实施"
     },
     {
       "date": "2026-10-27",
@@ -1161,6 +1865,54 @@ function loadData() {
       "importance": "high",
       "time": "全天",
       "note": "10月议息第一天"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "2026卫星应用大会",
+      "category": "global",
+      "importance": "normal",
+      "time": "全天",
+      "note": "10/27-10/29上海举办；卫星互联网、商业航天板块关注"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "中国9月工业经济效益",
+      "category": "cn-data",
+      "importance": "normal",
+      "time": "09:30",
+      "note": "工业利润"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "微软 Microsoft 2027财年Q1财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月27日 周二 盘后披露；对应北京时间 10月28日 周三 凌晨）；自然年Q3（7-9月）业绩，预计10/27盘后；关注Azure云与AI资本开支；具体日期以公司公告为准"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "谷歌 Alphabet 2026年Q3财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月27日 周二 盘后披露；对应北京时间 10月28日 周三 凌晨）；预计10/27盘后；关注搜索广告、云业务与Gemini进展；具体日期以公司公告为准"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "A股解禁高峰（单日超800亿）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "开盘",
+      "note": "下周（10/26-30）解禁约1023亿元涉及28家公司，其中10/28单日约807亿：西安奕材-U解禁617.02亿(占总股本70.26%)、中船特气595.58亿(72.62%)、颀中科技109.89亿(69.20%)；半导体/信息技术行业占解禁总额80%，注意相关个股抛压"
+    },
+    {
+      "date": "2026-10-28",
+      "title": "ETF期权交割日",
+      "category": "futures",
+      "importance": "high",
+      "time": "收盘",
+      "note": "上证50ETF期权行权"
     },
     {
       "date": "2026-10-28",
@@ -1172,19 +1924,35 @@ function loadData() {
     },
     {
       "date": "2026-10-28",
-      "title": "ETF期权交割日",
-      "category": "futures",
-      "importance": "high",
-      "time": "收盘",
-      "note": "上证50ETF期权行权"
+      "title": "苹果新品发布会（首款触屏MacBook）",
+      "category": "global",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "苹果计划发布首款触屏MacBook等新品；果链/消费电子催化（具体时点待确认）"
     },
     {
-      "date": "2026-10-27",
-      "title": "中国9月工业经济效益",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "09:30",
-      "note": "工业利润"
+      "date": "2026-10-29",
+      "title": "Meta 2026年Q3财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月28日 周三 盘后披露；对应北京时间 10月29日 周四 凌晨）；预计10/28盘后；关注广告业务、Reality Labs与AI投入；具体日期以公司公告为准"
+    },
+    {
+      "date": "2026-10-29",
+      "title": "沪深300/上证50前十大权重股·三季报密集披露窗口",
+      "category": "earnings",
+      "importance": "high",
+      "time": "全天",
+      "note": "三季报预约披露密集集中在10/28-10/31。覆盖权重股：贵州茅台、宁德时代、中国平安、招商银行、比亚迪、长江电力、兴业银行、美的集团、紫金矿业、中信证券等。具体预约披露日以沪/深交易所及巨潮网公告为准；关注权重股业绩对指数与板块的牵引。"
+    },
+    {
+      "date": "2026-10-29",
+      "title": "美国三季度GDP初值",
+      "category": "us-data",
+      "importance": "high",
+      "time": "20:30",
+      "note": "美国Q3 GDP初值+当周初请失业金；FOMC决议凌晨公布后同日落地，波动放大"
     },
     {
       "date": "2026-10-29",
@@ -1193,6 +1961,30 @@ function loadData() {
       "importance": "normal",
       "time": "收盘",
       "note": "A50期货交割"
+    },
+    {
+      "date": "2026-10-29",
+      "title": "欧洲央行议息会议",
+      "category": "global",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "10/28-10/29召开利率决议；欧洲已入冬令时，决议公布时间较夏令时延后一小时"
+    },
+    {
+      "date": "2026-10-30",
+      "title": "亚马逊 Amazon 2026年Q3财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月29日 周四 盘后披露；对应北京时间 10月30日 周五 凌晨）；预计10/29盘后；关注零售利润率、AWS云与AI基建；具体日期以公司公告为准"
+    },
+    {
+      "date": "2026-10-30",
+      "title": "苹果 Apple 2026财年Q4财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 10月29日 周四 盘后披露；对应北京时间 10月30日 周五 凌晨）；自然年Q3（9月财季）业绩，预计10/29盘后；iPhone18折叠屏首销后首份财报，关注iPhone销量与服务收入；具体日期以公司公告为准"
     },
     {
       "date": "2026-10-30",
@@ -1211,28 +2003,20 @@ function loadData() {
       "note": "核心通胀指标"
     },
     {
+      "date": "2026-10-30",
+      "title": "日本央行利率决议",
+      "category": "global",
+      "importance": "normal",
+      "time": "不确定",
+      "note": "10/29-10/30议息，同步发布经济与物价展望；关注日元与亚洲流动性"
+    },
+    {
       "date": "2026-10-31",
       "title": "A股三季报披露截止日",
       "category": "earnings",
       "importance": "high",
       "time": "全天",
       "note": "所有上市公司三季报披露截止"
-    },
-    {
-      "date": "2026-10-15",
-      "title": "三季报密集披露期开始",
-      "category": "earnings",
-      "importance": "high",
-      "time": "全天",
-      "note": "10月下半月三季报密集发布，关注业绩拐点"
-    },
-    {
-      "date": "2026-10-25",
-      "title": "政治局会议（预计）",
-      "category": "cn-policy",
-      "importance": "high",
-      "time": "不确定",
-      "note": "三季度经济形势分析，10月政治局会议定调政策"
     },
     {
       "date": "2026-11-02",
@@ -1268,6 +2052,14 @@ function loadData() {
     },
     {
       "date": "2026-11-10",
+      "title": "中国10月进出口数据（预计）",
+      "category": "cn-data",
+      "importance": "high",
+      "time": "约11:00",
+      "note": "外贸数据（预计11/7-11/10）"
+    },
+    {
+      "date": "2026-11-10",
       "title": "美国10月CPI",
       "category": "us-data",
       "importance": "high",
@@ -1281,14 +2073,6 @@ function loadData() {
       "importance": "high",
       "time": "约16:00",
       "note": "信用数据（预计11/10-11/15）"
-    },
-    {
-      "date": "2026-11-10",
-      "title": "中国10月进出口数据（预计）",
-      "category": "cn-data",
-      "importance": "high",
-      "time": "约11:00",
-      "note": "外贸数据（预计11/7-11/10）"
     },
     {
       "date": "2026-11-16",
@@ -1305,6 +2089,14 @@ function loadData() {
       "importance": "high",
       "time": "09:20",
       "note": "11/15为周日，预计顺延"
+    },
+    {
+      "date": "2026-11-19",
+      "title": "英伟达 Nvidia 2027财年Q3财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 11月18日 周三 盘后披露；对应北京时间 11月19日 周四 凌晨）；自然年Q3（8-10月）业绩，预计11/18盘后；关注Blackwell出货、数据中心收入及下季指引；直接影响A股光模块、PCB、算力租赁等板块；具体日期以公司公告为准"
     },
     {
       "date": "2026-11-20",
@@ -1340,19 +2132,19 @@ function loadData() {
     },
     {
       "date": "2026-11-26",
-      "title": "A50期货交割日",
-      "category": "futures",
-      "importance": "normal",
-      "time": "收盘",
-      "note": "A50期货交割"
-    },
-    {
-      "date": "2026-11-26",
       "title": "美国10月核心PCE",
       "category": "us-data",
       "importance": "high",
       "time": "21:30",
       "note": "核心通胀指标，12月FOMC前关键参考"
+    },
+    {
+      "date": "2026-11-26",
+      "title": "A50期货交割日",
+      "category": "futures",
+      "importance": "normal",
+      "time": "收盘",
+      "note": "A50期货交割"
     },
     {
       "date": "2026-11-27",
@@ -1420,19 +2212,19 @@ function loadData() {
     },
     {
       "date": "2026-12-09",
-      "title": "美联储FOMC决议+新闻发布会",
-      "category": "fomc",
-      "importance": "high",
-      "time": "03:00",
-      "note": "利率决议+点阵图+鲍威尔发布会；年内最重要FOMC"
-    },
-    {
-      "date": "2026-12-09",
       "title": "中国11月CPI+PPI",
       "category": "cn-data",
       "importance": "high",
       "time": "09:30",
       "note": "通胀数据"
+    },
+    {
+      "date": "2026-12-09",
+      "title": "美联储FOMC决议+新闻发布会",
+      "category": "fomc",
+      "importance": "high",
+      "time": "03:00",
+      "note": "利率决议+点阵图+鲍威尔发布会；年内最重要FOMC"
     },
     {
       "date": "2026-12-10",
@@ -1460,19 +2252,19 @@ function loadData() {
     },
     {
       "date": "2026-12-15",
-      "title": "央行MLF操作",
-      "category": "cn-policy",
-      "importance": "high",
-      "time": "09:20",
-      "note": "年内最后一次MLF操作"
-    },
-    {
-      "date": "2026-12-15",
       "title": "中央经济工作会议（预计Day1）",
       "category": "cn-policy",
       "importance": "high",
       "time": "全天",
       "note": "全年最重要的经济工作会议，定调2027年经济政策"
+    },
+    {
+      "date": "2026-12-15",
+      "title": "央行MLF操作",
+      "category": "cn-policy",
+      "importance": "high",
+      "time": "09:20",
+      "note": "年内最后一次MLF操作"
     },
     {
       "date": "2026-12-16",
@@ -1548,14 +2340,6 @@ function loadData() {
     },
     {
       "date": "2026-12-31",
-      "title": "中国12月官方PMI",
-      "category": "cn-data",
-      "importance": "high",
-      "time": "09:30",
-      "note": "年内最后一份PMI；全年经济收官数据"
-    },
-    {
-      "date": "2026-12-31",
       "title": "A股2026年收官交易日",
       "category": "holiday",
       "importance": "high",
@@ -1563,732 +2347,116 @@ function loadData() {
       "note": "年度最后一个交易日，关注机构排名行情"
     },
     {
-      "date": "2026-07-14",
-      "title": "美联储主席沃什众议院听证会",
-      "category": "global",
-      "importance": "high",
-      "time": "22:00",
-      "note": "美联储主席凯文·沃什就半年度货币政策报告向众议院金融服务委员会作证；美东时间7月14日上午10时，北京时间7月14日晚间22时（夏令时）；为7月底FOMC决议提供重要政策线索"
-    },
-    {
-      "date": "2026-07-15",
-      "title": "A股中报业绩预告披露截止日",
-      "category": "earnings",
-      "importance": "high",
-      "time": "收盘",
-      "note": "沪深主板、创业板上市公司上半年净利润同比涨跌超50%、亏损、扭亏为盈的必须在今日前完成预告披露；业绩雷与超预期集中释放，市场波动可能放大"
-    },
-    {
-      "date": "2026-07-15",
-      "title": "美联储主席沃什参议院听证会",
-      "category": "global",
-      "importance": "high",
-      "time": "22:00",
-      "note": "美联储主席凯文·沃什就半年度货币政策报告向参议院银行委员会作证；美东时间7月15日上午10时，北京时间7月15日晚间22时（夏令时）；关注其对通胀、就业及降息路径的表态"
-    },
-    {
-      "date": "2026-07-16",
-      "title": "2026空天信息大会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "2026空天信息大会召开，关注卫星互联网、商业航天、遥感应用等产业催化"
-    },
-    {
-      "date": "2026-07-17",
-      "title": "2026世界人工智能大会WAIC开幕",
-      "category": "global",
-      "importance": "high",
-      "time": "开幕",
-      "note": "2026世界人工智能大会暨人工智能全球治理高级别会议在上海开幕（7/17-7/20），主题为「智能伙伴 共创未来」；展览面积首超10万平方米，1100余家企业参展，300余款产品全球首发；AI算力、具身智能、数据要素等概念催化窗口"
-    },
-    {
-      "date": "2026-07-18",
-      "title": "中船特气披露沪市首份中报",
-      "category": "earnings",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "中船特气预计披露沪市首份2026年半年报，拉开A股中报披露序幕；具体披露时点待确认"
-    },
-    {
-      "date": "2026-07-21",
-      "title": "2026中国汽车论坛",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "2026中国汽车论坛举办，聚焦汽车产业发展趋势、新能源、智能驾驶等"
-    },
-    {
-      "date": "2026-07-22",
-      "title": "2026国际低空经济博览会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "2026国际低空经济博览会举办，聚焦无人机应用、eVTOL、低空通航等"
-    },
-    {
-      "date": "2026-07-22",
-      "title": "2026上海核能产业博览会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "2026上海核能可持续发展大会暨上海国际核能产业博览会同期举办，聚焦核电技术、可控核聚变等"
-    },
-    {
-      "date": "2026-07-27",
-      "title": "4000亿元MLF到期",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "1年期中期借贷便利到期，关注央行续作规模及利率；流动性关键节点"
-    },
-    {
-      "date": "2026-07-31",
-      "title": "2026 ChinaJoy开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "中国国际数码互动娱乐展览会(7/31-8/3)，游戏/数字娱乐/AI应用板块催化"
-    },
-    {
-      "date": "2026-08-01",
-      "title": "省级电网输配电价新规执行",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "全天",
-      "note": "国家发改委核定第四监管周期省级电网输配电价、区域电网输电价格自8/1起执行；影响电力板块盈利预期"
-    },
-    {
-      "date": "2026-08-02",
-      "title": "OPEC+七国产量会议",
-      "category": "global",
-      "importance": "high",
-      "time": "不确定",
-      "note": "沙特、俄罗斯等7个OPEC+成员国审查市场状况和产量配额；8月起日产量合计增加18.8万桶；影响国际油价及石化板块"
-    },
-    {
-      "date": "2026-08-03",
-      "title": "港交所下调最低涨跌价第二阶段生效",
-      "category": "global",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "港股最低涨跌价位改革第二阶段实施，影响港股流动性及南下资金交易成本"
-    },
-    {
-      "date": "2026-08-03",
-      "title": "港交所推出5年期中国国债期货",
-      "category": "global",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "香港交易所正式推出5年期中国国债期货合约，丰富外资配置人民币债券资产的对冲工具"
-    },
-    {
-      "date": "2026-08-04",
-      "title": "SpaceX上市后首份季报",
-      "category": "global",
-      "importance": "normal",
-      "time": "盘后",
-      "note": "SpaceX上市后首次财报披露（美股盘后）；商业航天/卫星互联网概念催化窗口"
-    },
-    {
-      "date": "2026-08-10",
-      "title": "宇树科技科创板网上申购",
-      "category": "global",
+      "date": "2026-12-31",
+      "title": "中国12月官方PMI",
+      "category": "cn-data",
       "importance": "high",
       "time": "09:30",
-      "note": "「人形机器人第一股」宇树科技(688836)科创板IPO网上申购，初步询价日8/5；7/31已引发板块批量涨停，催化减速器、伺服电机、具身智能等概念"
+      "note": "年内最后一份PMI；全年经济收官数据"
     },
     {
-      "date": "2026-08-10",
-      "title": "长鑫科技纳入MSCI中国全股票指数生效",
-      "category": "global",
-      "importance": "high",
-      "time": "开盘",
-      "note": "长鑫科技(CXMT)被纳入MSCI中国全股票指数正式生效；存储芯片龙头，预计带动被动资金流入A股半导体板块"
-    },
-    {
-      "date": "2026-08-10",
-      "title": "中国经济论坛·民营经济高质量发展研讨会",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "全天",
-      "note": "8/10-8/11在广州南沙召开，主题「促进民营经济健康发展、高质量发展」；聚焦政策落实、新质生产力、金融支持等议题；民营经济板块关注"
-    },
-    {
-      "date": "2026-08-13",
-      "title": "中芯国际披露2026年Q2业绩",
+      "date": "2027-01-15",
+      "title": "A股2026年年报预约披露启动",
       "category": "earnings",
       "importance": "high",
-      "time": "盘后",
-      "note": "中芯国际(688981)8/13交易时段后披露2026年第二季度业绩，8/14举行业绩说明会；内地晶圆代工龙头业绩对半导体板块影响重大"
-    },
-    {
-      "date": "2026-08-14",
-      "title": "比尔·盖茨访韩讨论小型模块化反应堆",
-      "category": "global",
-      "importance": "normal",
       "time": "全天",
-      "note": "比尔·盖茨(TerraPower)与SK集团、HD现代集团旗下企业讨论小型模块化反应堆(SMR)业务合作；A股可控核聚变、核电板块概念催化"
+      "note": "交易所年报预约披露自1月中旬陆续开始，首份年报通常1月中下旬亮相，拉开年报季序幕"
     },
     {
-      "date": "2026-08-25",
-      "title": "A股限售股解禁小高峰",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "奥来德(688378)解禁832万股(占总股本3.18%)、苏盐井神(603299)解禁约1.64亿股(占20.97%)；注意相关个股抛压"
-    },
-    {
-      "date": "2026-08-26",
-      "title": "英伟达发布2026财年第二季度财报",
-      "category": "global",
-      "importance": "high",
-      "time": "盘后",
-      "note": "全球AI总龙头Q2 FY2027业绩，关注Blackwell出货、数据中心收入及下季指引；直接影响A股光模块、PCB、算力租赁等板块"
-    },
-    {
-      "date": "2026-08-26",
-      "title": "百度集团股东特别大会",
-      "category": "global",
-      "importance": "normal",
-      "time": "09:00",
-      "note": "审议自愿转换为香港联交所主要上市相关授权及2026年股权激励计划；预计年内生效，关注港股通纳入预期"
-    },
-    {
-      "date": "2026-08-27",
-      "title": "杰克逊霍尔全球央行年会开幕",
-      "category": "global",
+      "date": "2027-01-15",
+      "title": "沪深300/上证50前十大权重股·年报密集披露窗口",
+      "category": "earnings",
       "importance": "high",
       "time": "全天",
-      "note": "8/27-8/29召开，主题为「金融创新：支付体系与货币政策的影响」；全球主要央行行长及经济学家齐聚，9月FOMC前最重要的政策风向窗口"
+      "note": "2026年年报预约披露高峰集中在3-4月。覆盖权重股：贵州茅台、宁德时代、中国平安、招商银行、比亚迪、长江电力、兴业银行、美的集团、紫金矿业、中信证券等。具体预约披露日以沪/深交易所及巨潮网公告为准。"
     },
     {
-      "date": "2026-08-28",
-      "title": "美联储主席杰克逊霍尔主旨演讲",
-      "category": "global",
+      "date": "2027-01-28",
+      "title": "微软 Microsoft 2027财年Q2财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "约22:00",
-      "note": "新任美联储主席沃什首次在杰克逊霍尔发表主旨演讲，市场关注其对通胀、降息路径及中性利率的表态；鹰鸽信号将重塑全球风险偏好"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 1月27日 周三 盘后披露；对应北京时间 1月28日 周四 凌晨）；自然年Q4（10-12月）业绩，预计1/27盘后；具体日期以公司公告为准"
     },
     {
-      "date": "2026-08-28",
-      "title": "国内成品油调价窗口",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "24时",
-      "note": "新一轮成品油零售价调整，国际油价波动将影响炼化、物流及交通运输板块"
-    },
-    {
-      "date": "2026-08-29",
-      "title": "杰克逊霍尔全球央行年会闭幕",
-      "category": "global",
+      "date": "2027-01-28",
+      "title": "特斯拉 Tesla 2026年Q4财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "全天",
-      "note": "2026年杰克逊霍尔经济政策研讨会闭幕；全球央行行长及学者围绕「金融创新：支付体系与货币政策的影响」研讨后，市场集中消化政策信号，影响9月FOMC预期定价"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 1月27日 周三 盘后披露；对应北京时间 1月28日 周四 凌晨）；预计1/27盘后（北京时间1/28凌晨）；2026全年交付与盈利收官；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-01",
-      "title": "《2026年版国家基本药物目录》正式实施",
-      "category": "cn-policy",
+      "date": "2027-01-29",
+      "title": "苹果 Apple 2027财年Q1财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "全天",
-      "note": "时隔八年首次更新，共收录药品794种（新增116种），16种创新药首次纳入（含4种国产Ⅰ类新药）；荣昌生物、康诺亚、先声药业、石药集团等A股药企核心产品受益；医药板块政策催化"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 1月28日 周四 盘后披露；对应北京时间 1月29日 周五 凌晨）；自然年Q4（假日季）业绩，预计1/28盘后；关注iPhone holiday quarter销量与服务；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-02",
-      "title": "大商所焦炭期权上市交易",
-      "category": "futures",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "大连商品交易所焦炭期权正式挂牌交易，丰富黑色系产业链衍生品工具"
-    },
-    {
-      "date": "2026-09-03",
-      "title": "2026世界动力电池大会开幕（宜宾）",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/3-9/4召开，经国务院批准，主题「电驱万物·融合共生」；特斯拉、宁德时代、比亚迪等逾120家龙头参会；发布《动力电池产业发展指数》《动力电池技术路线图》；新能源/电池/储能板块催化"
-    },
-    {
-      "date": "2026-09-04",
-      "title": "第32次APEC中小企业部长会议",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "APEC中小企业部长会议，关注区域经济合作及贸易政策动向"
-    },
-    {
-      "date": "2026-09-07",
-      "title": "A股限售股解禁高峰",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "当日16家公司限售股解禁，市值约303亿元；华峰铝业解禁116.59亿元（占总股本72.17%）、固德威解禁81.09亿元；注意相关个股抛压"
-    },
-    {
-      "date": "2026-09-07",
-      "title": "中国8月外汇储备",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "约10:00",
-      "note": "央行公布8月官方外汇储备，观察资本流动与汇率稳定信号"
-    },
-    {
-      "date": "2026-09-07",
-      "title": "华为Mate XT2三折叠及全场景新品发布会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "华为全新展翼三折叠HUAWEI Mate XT2非凡大师真机发布；消费电子/华为链催化窗口"
-    },
-    {
-      "date": "2026-09-08",
-      "title": "中国8月贸易帐-人民币计价",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "约10:00",
-      "note": "海关总署公布人民币计价贸易差额，反映出口韧性与贸易顺差变化"
-    },
-    {
-      "date": "2026-09-09",
-      "title": "2026中国国际服务贸易交易会开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/9-9/12北京召开，设置金融科技、数字经济、AI服务、出海服务专区；数字服务/金融科技/AI应用板块关注"
-    },
-    {
-      "date": "2026-09-09",
-      "title": "财政部续发50年期超长期特别国债",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "竞争性招标面值总额350亿元；关注超长债供给对资金面及债市的扰动"
-    },
-    {
-      "date": "2026-09-10",
-      "title": "苹果秋季特别活动暨iPhone18折叠屏首发",
-      "category": "global",
+      "date": "2027-02-04",
+      "title": "Meta 2026年Q4财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "约01:00",
-      "note": "北京时间9月10日凌晨举行，推出iPhone18 Pro/Pro Max及首款折叠屏iPhone；果链/消费电子年度催化"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 2月3日 周三 盘后披露；对应北京时间 2月4日 周四 凌晨）；预计2/3盘后；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-10",
-      "title": "上期所3只期权新品种上市",
-      "category": "futures",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "热轧卷板、不锈钢、低硫燃料油期权上市交易；丰富黑色系及能化产业链衍生品工具"
-    },
-    {
-      "date": "2026-09-11",
-      "title": "科创50指数样本调整生效",
-      "category": "cn-data",
+      "date": "2027-02-04",
+      "title": "亚马逊 Amazon 2026年Q4财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "收盘后",
-      "note": "本次更换5只样本，调入睿创微纳、华丰科技、屹唐股份、影石创新、盛合晶微，调出凯赛生物、中无人机等；跟踪被动资金将同步调仓"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 2月3日 周三 盘后披露；对应北京时间 2月4日 周四 凌晨）；预计2/3盘后；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-11",
-      "title": "2026中国算力大会开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/11-9/13河北廊坊举行，聚焦液冷、AI服务器、算力网络、国产算力芯片；AI算力/服务器/液冷板块催化"
-    },
-    {
-      "date": "2026-09-13",
-      "title": "亚德诺(ADI)全产品线涨价生效",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "全球模拟芯片龙头年内第二轮全产品组合价格调整；模拟芯片/半导体周期反转信号，利好国产替代"
-    },
-    {
-      "date": "2026-09-14",
-      "title": "科创板指数三季度调样正式生效",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "科创板相关指数成分股调整生效，跟踪型资金被动调仓，注意相关个股波动"
-    },
-    {
-      "date": "2026-09-15",
-      "title": "第五届北斗规模应用国际峰会开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/15-9/16湖南株洲召开，聚焦交通、农业、工业高精度定位落地；北斗导航/卫星应用板块催化"
-    },
-    {
-      "date": "2026-09-15",
-      "title": "第十三届北京香山论坛开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/15-9/17北京举办，国际安全防务议题；军工板块关注"
-    },
-    {
-      "date": "2026-09-15",
-      "title": "国新办8月国民经济运行发布会+70城房价",
-      "category": "cn-data",
+      "date": "2027-02-04",
+      "title": "谷歌 Alphabet 2026年Q4财报",
+      "category": "earnings",
       "importance": "high",
-      "time": "10:00",
-      "note": "国家统计局发布8月工业增加值、社零、固投等经济数据并举行发布会，同步公布70城房价；观察国内经济成色"
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 2月3日 周三 盘后披露；对应北京时间 2月4日 周四 凌晨）；预计2/3盘后；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-15",
-      "title": "美国对加拿大加征50%关税生效、加报复关税生效",
-      "category": "global",
+      "date": "2027-02-25",
+      "title": "英伟达 Nvidia 2027财年Q4财报",
+      "category": "earnings",
+      "importance": "high",
+      "time": "美东盘后·北京次日凌晨",
+      "note": "（美东时间 2月24日 周三 盘后披露；对应北京时间 2月25日 周四 凌晨）；自然年Q4（1月财季）业绩，预计2/24盘后；关注数据中心与游戏业务全年收官；具体日期以公司公告为准"
+    },
+    {
+      "date": "2027-03-01",
+      "title": "A股年报密集披露期开始",
+      "category": "earnings",
       "importance": "high",
       "time": "全天",
-      "note": "美加贸易战升级：美方对约100类加商品加征50%关税，加方280亿加元报复关税同步生效；全球贸易摩擦升温，关注出口链与国产替代"
+      "note": "3-4月为年报披露高峰，业绩验证与分红方案集中出炉，业绩雷与超预期频现"
     },
     {
-      "date": "2026-09-15",
-      "title": "日美澳\"东方之盾\"联合演习启动",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/15-9/24在日本多地举行，区域军事活动密集；持续催化军工主题热度"
-    },
-    {
-      "date": "2026-09-16",
-      "title": "香港首个五年规划及新施政报告公布",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "香港特区政府公布首个五年发展规划及新一份施政报告，涉及跨境贸易、金融开放等核心内容"
-    },
-    {
-      "date": "2026-09-16",
-      "title": "博迈医疗创业板IPO、九目化学北交所IPO上会",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "全天",
-      "note": "深交所/北交所上市委审议博迈医疗（创业板，血管介入器械）和九目化学（北交所，OLED材料）首发事项"
-    },
-    {
-      "date": "2026-09-17",
-      "title": "2026全球XDC创新峰会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "聚焦创新药、CXO行业前沿动态；医药板块事件催化"
-    },
-    {
-      "date": "2026-09-17",
-      "title": "日本央行利率决议",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "日本央行议息会议，影响日元汇率与亚洲市场流动性预期"
-    },
-    {
-      "date": "2026-09-19",
-      "title": "第四届CCF智能汽车学术年会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "覆盖自动驾驶、车规芯片等技术方向；智能汽车/车联网板块关注"
-    },
-    {
-      "date": "2026-09-21",
-      "title": "中证港股通人工智能应用指数发布",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "收盘后",
-      "note": "中证指数公司发布中证港股通人工智能应用指数，为港股AI应用板块提供投资标的参考"
-    },
-    {
-      "date": "2026-09-21",
-      "title": "标普道琼斯指数调整生效",
-      "category": "global",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "标普中盘股400、标普500、标普100等指数成分股调整生效，跟踪型资金被动调仓"
-    },
-    {
-      "date": "2026-09-22",
-      "title": "第48届世界技能大赛上海开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "晚间",
-      "note": "9/22-9/27上海举行，被誉为「世界技能奥林匹克」，关注技能人才、职业教育及高端制造相关主题"
-    },
-    {
-      "date": "2026-09-22",
-      "title": "苹果新款Mac Studio门店开售",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "搭载M5 Max/Ultra芯片的新款Mac Studio正式开售，消费电子/苹果链催化"
-    },
-    {
-      "date": "2026-09-23",
-      "title": "华为Mate 90系列秋季发布会",
-      "category": "global",
+      "date": "2027-04-21",
+      "title": "美股科技巨头2027年Q1财报季开启（预计）",
+      "category": "earnings",
       "importance": "high",
       "time": "全天",
-      "note": "华为年度旗舰Mate 90系列暨Mate XT2三折叠手机发布，首发基于「韬定律」的新一代麒麟芯片；消费电子/华为链/半导体重点关注"
+      "note": "苹果/微软/谷歌/亚马逊/Meta/特斯拉/英伟达陆续披露2027年Q1业绩，预计自4月下旬起；具体日期以公司公告为准"
     },
     {
-      "date": "2026-09-23",
-      "title": "高通2026骁龙峰会开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "9/23-9/25举行，新一代骁龙旗舰移动平台发布，利好消费电子、AI终端及芯片产业链"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "国内成品油调价窗口开启",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "24时",
-      "note": "新一轮成品油零售价调整，国际油价波动将影响炼化、物流及交通运输板块"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "上期所不锈钢期货业务细则修订实施",
-      "category": "futures",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "《上海期货交易所不锈钢期货业务细则(修订版)》实施，影响不锈钢期货合约交易规则"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "中秋长假前最后一个完整交易日",
-      "category": "holiday",
-      "importance": "high",
-      "time": "收盘",
-      "note": "9/25-9/27中秋休市，节前最后一个完整交易日，资金通常避险缩量，注意高位题材股抛压"
-    },
-    {
-      "date": "2026-09-24",
-      "title": "央行货币政策委员会三季度例会（预计）",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "三季度例会通常于9月下旬召开，具体日期待确认；关注货币政策定调及信贷增长表述"
-    },
-    {
-      "date": "2026-10-05",
-      "title": "美国9月ISM非制造业PMI",
-      "category": "us-data",
-      "importance": "high",
-      "time": "22:00",
-      "note": "美国9月ISM服务业PMI，反映服务业景气度，影响美联储政策预期与全球风险偏好"
-    },
-    {
-      "date": "2026-10-06",
-      "title": "北交所交易系统联调测试",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "09:15-12:00",
-      "note": "北交所定于10月6日9:15至12:00进行交易系统联调测试，保障节后交易正常进行"
-    },
-    {
-      "date": "2026-10-07",
-      "title": "美联储9月FOMC会议纪要",
-      "category": "fomc",
-      "importance": "high",
-      "time": "02:00",
-      "note": "9月15-16日FOMC会议纪要发布，披露加息决策细节与内部分歧；全球市场关注政策路径线索"
-    },
-    {
-      "date": "2026-10-08",
-      "title": "美国上周初请失业金人数",
-      "category": "us-data",
-      "importance": "normal",
-      "time": "20:30",
-      "note": "A股节后首日，美国劳动力市场数据或影响海外情绪传导"
-    },
-    {
-      "date": "2026-10-09",
-      "title": "通则康威创业板IPO申购",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "09:15",
-      "note": "广州通则康威科技创业板IPO网上申购日，网下与网上申购同日进行；关注新股冻资效应"
-    },
-    {
-      "date": "2026-10-09",
-      "title": "美国10月密歇根大学消费者信心指数初值",
-      "category": "us-data",
-      "importance": "normal",
-      "time": "22:00",
-      "note": "美国消费者信心初值，反映消费前景与通胀预期"
-    },
-    {
-      "date": "2026-10-12",
-      "title": "IMF/世界银行秋季年会开幕（曼谷）",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/12-10/18在泰国曼谷举行；10/13发布《世界经济展望》(WEO)与《全球金融稳定报告》(GFSR)，10/16 IMF总裁与美联储主席沃什炉边对话；关注全球经济预测与政策信号"
-    },
-    {
-      "date": "2026-10-12",
-      "title": "A股周一解禁小高峰",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "当日约22家公司解禁：陕西能源231.84亿元(占总股本64%)、首药控股29.44亿(56.96%)、金科股份21.96亿(17%)、奥美森11.42亿(69.51%)等；注意相关个股抛压"
-    },
-    {
-      "date": "2026-10-14",
-      "title": "2026世界储能大会开幕（宁德）",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/14-10/16福建宁德举行，主题「智储新程 绿动全球」，首次增设算电协同与AI智储融合议题；宁德时代链、储能/锂电板块催化"
-    },
-    {
-      "date": "2026-10-15",
-      "title": "第140届广交会第一期开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/15-10/19广州举行，第一期「先进制造」，展览面积155万平方米；观察外贸景气度与出口链订单信号"
-    },
-    {
-      "date": "2026-10-15",
-      "title": "国内成品油调价窗口",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "24时",
-      "note": "年内第20次调价窗口（上轮9/24上调后格局「十三涨五跌一搁浅」）；中东地缘扰动下国际油价高位波动，影响炼化、物流板块"
-    },
-    {
-      "date": "2026-10-19",
-      "title": "东兴证券、信达证券终止上市（中金换股吸收合并）",
-      "category": "cn-policy",
-      "importance": "high",
-      "time": "开盘",
-      "note": "中金公司发行A股换股吸收合并东兴证券、信达证券，两家公司10/19起终止上市、不进入退市整理期，原股东股票按换股比例转换为中金A股；券商合并重组主题关注"
-    },
-    {
-      "date": "2026-10-19",
-      "title": "皇冠新材深市主板IPO申购",
-      "category": "cn-data",
-      "importance": "normal",
-      "time": "09:15",
-      "note": "功能性复合材料厂商皇冠新材(001381)深主板网上申购，拟发行5630万股、募资约10.3亿元；中金公司承销"
-    },
-    {
-      "date": "2026-10-19",
-      "title": "2026中国汽车供应链大会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/19-10/21召开，聚焦汽车供应链安全与智能化；汽车零部件板块催化"
-    },
-    {
-      "date": "2026-10-20",
-      "title": "APEC财政部长会议（中国香港）",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/20-10/21在香港举行，关注区域财金合作与宏观政策信号"
-    },
-    {
-      "date": "2026-10-21",
-      "title": "2026世界智能网联汽车大会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "智能驾驶、车路协同、车规芯片等方向；智能汽车板块催化"
-    },
-    {
-      "date": "2026-10-21",
-      "title": "第93届全国药品交易会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "全国药品交易会开幕，医药流通与创新药商务对接；医药板块关注"
-    },
-    {
-      "date": "2026-10-23",
-      "title": "2026 ESMO欧洲肿瘤内科学会大会开幕",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/23-10/27举行，全球肿瘤临床研究重磅数据密集发布；创新药/ADC/CXO板块催化"
-    },
-    {
-      "date": "2026-10-26",
-      "title": "二十届五中全会开幕",
-      "category": "cn-policy",
+      "date": "2027-04-30",
+      "title": "A股2026年年报披露截止日",
+      "category": "earnings",
       "importance": "high",
       "time": "全天",
-      "note": "10/26-10/29北京召开，审议「十五五」规划建议；本周A股最重要政策事件，会议公报（预计10/29）对市场主线定调影响重大"
+      "note": "所有上市公司2026年年报披露截止（法定规则，固定日）"
     },
     {
-      "date": "2026-10-26",
-      "title": "上证系列综合指数编制方案修订实施",
-      "category": "cn-policy",
-      "importance": "normal",
-      "time": "开盘",
-      "note": "上交所、中证指数公司修订上证系列综合指数编制方案正式实施；同日北交所无价格涨跌幅限制股票大宗交易申报价格范围新规实施"
-    },
-    {
-      "date": "2026-10-26",
-      "title": "CPE2026国际算电展",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/26-10/28举办，聚焦算力与电力协同（算电协同）；AI算力、储能、绿电板块催化"
-    },
-    {
-      "date": "2026-10-27",
-      "title": "2026卫星应用大会",
-      "category": "global",
-      "importance": "normal",
-      "time": "全天",
-      "note": "10/27-10/29上海举办；卫星互联网、商业航天板块关注"
-    },
-    {
-      "date": "2026-10-28",
-      "title": "A股解禁高峰（单日超800亿）",
-      "category": "cn-data",
+      "date": "2027-04-30",
+      "title": "A股2027年一季报披露截止日",
+      "category": "earnings",
       "importance": "high",
-      "time": "开盘",
-      "note": "下周（10/26-30）解禁约1023亿元涉及28家公司，其中10/28单日约807亿：西安奕材-U解禁617.02亿(占总股本70.26%)、中船特气595.58亿(72.62%)、颀中科技109.89亿(69.20%)；半导体/信息技术行业占解禁总额80%，注意相关个股抛压"
-    },
-    {
-      "date": "2026-10-28",
-      "title": "苹果新品发布会（首款触屏MacBook）",
-      "category": "global",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "苹果计划发布首款触屏MacBook等新品；果链/消费电子催化（具体时点待确认）"
-    },
-    {
-      "date": "2026-10-29",
-      "title": "美国三季度GDP初值",
-      "category": "us-data",
-      "importance": "high",
-      "time": "20:30",
-      "note": "美国Q3 GDP初值+当周初请失业金；FOMC决议凌晨公布后同日落地，波动放大"
-    },
-    {
-      "date": "2026-10-29",
-      "title": "欧洲央行议息会议",
-      "category": "global",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "10/28-10/29召开利率决议；欧洲已入冬令时，决议公布时间较夏令时延后一小时"
-    },
-    {
-      "date": "2026-10-30",
-      "title": "日本央行利率决议",
-      "category": "global",
-      "importance": "normal",
-      "time": "不确定",
-      "note": "10/29-10/30议息，同步发布经济与物价展望；关注日元与亚洲流动性"
+      "time": "全天",
+      "note": "所有上市公司2027年一季报披露截止（法定规则，固定日）；与年报截止同日"
     }
   ]
 };
@@ -2312,7 +2480,8 @@ function renderCalendar() {
   const main = document.getElementById('calendarMain');
   const months = [
     { y: 2026, m: 7 }, { y: 2026, m: 8 }, { y: 2026, m: 9 },
-    { y: 2026, m: 10 }, { y: 2026, m: 11 }, { y: 2026, m: 12 }
+    { y: 2026, m: 10 }, { y: 2026, m: 11 }, { y: 2026, m: 12 },
+    { y: 2027, m: 1 }, { y: 2027, m: 2 }, { y: 2027, m: 3 }, { y: 2027, m: 4 }
   ];
   const today = new Date();
   const todayStr = today.getFullYear() + '-' +
